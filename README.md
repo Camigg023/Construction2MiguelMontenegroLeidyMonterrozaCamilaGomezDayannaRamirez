@@ -12,4 +12,3 @@ Implementación Proyecto Construcción de Software II
 ## Tecnologias
 Java, SpringBoot, MySQL, Apache NetBeans 
 
-Java, SpringBoot, MySQL, Apache NetBeans 
