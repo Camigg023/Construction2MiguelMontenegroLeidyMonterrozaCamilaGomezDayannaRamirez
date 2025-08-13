@@ -9,10 +9,10 @@ Implementación Proyecto Construcción de Software II
 ###- Leidy Laura Monterroza Bustamante 
 ###- Camila Gómez Gómez 
 ###- Dayanna Alejnadra Ramirez Hernandez
-### Migel David Montenegro Figueroa
+### Miguel David Montenegro Figueroa
 ### Leidy Laura Monterroza Bustamante
 ### Camila Gómez Gómez 
-### Dayanna Alejnadra Ramirez Hernandez
+### Dayanna Alejandra Ramirez Hernandez
 
 ## Tecnologias
 Java, SpringBoot, MySQL, Apache NetBeans 
