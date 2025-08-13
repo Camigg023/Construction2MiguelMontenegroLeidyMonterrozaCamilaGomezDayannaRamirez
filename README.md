@@ -1,2 +1,18 @@
 # Construction2MiguelMontenegroLeidyMonterrozaCamilaGomezDayannaRamirez
-&lt;Construcción de software II>&lt;Miguel David Montenegro Figueroa>&lt;Leidy Laura Monterroza Bustamante>&lt;Camila Gómez Gómez>&lt;Dayanna Alejandra Ramirez Hernández>&lt;Tecnologías: Java, Spring Boot, MySQL, Apache NetBeans>
+
+Implementación Proyecto Construcción de Software II
+
+##integrantes 
+## integrantes 
+
+###- Miguel David Montenegro Figueroa
+###- Leidy Laura Monterroza Bustamante 
+###- Camila Gómez Gómez 
+###- Dayanna Alejnadra Ramirez Hernandez
+### Migel David Montenegro Figueroa
+### Leidy Laura Monterroza Bustamante
+### Camila Gómez Gómez 
+### Dayanna Alejnadra Ramirez Hernandez
+
+## Tecnologias
+Java, SpringBoot, MySQL, Apache NetBeans 
