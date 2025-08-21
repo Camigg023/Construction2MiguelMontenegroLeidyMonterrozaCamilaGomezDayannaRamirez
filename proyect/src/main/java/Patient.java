@@ -1,18 +1,17 @@
-
+import app.domain.model.emuns.Role;
+import java.sql.Date;
 public class Patient extends User{
-    private Strring gender; 
+    private String gender; 
 
-    public Patient(Strring gender, String name, String email, String address, String userName, String password, Int identification, Int phone, date BirthDay,) {
-        super(name,email,address, userName,password, identification, phone, BirthDay);
-        this.gender = gender;
-        
+    public Patient(String name, String email, String address, String userName, String password, int identification, int phone, Date BirthDay, Role Role) {
+        super(name, email, address, userName, password, identification, phone, BirthDay, Role);
     }
 
-    public Strring getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Strring gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

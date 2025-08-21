@@ -3,7 +3,7 @@ public class EmergencyContact {
 
     private String name; 
     private String relationShip; 
-    private Int phone; 
+    private int phone; 
     
     public String getName() {
         return name;
@@ -21,11 +21,11 @@ public class EmergencyContact {
         this.relationShip = relationShip;
     }
 
-    public Int getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(Int phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 }

@@ -1,17 +1,17 @@
-
-public class Bill extends Patient{
+import java.util.Date;
+public class Bill{
   private String patientName;   
   private String doctorName;  
   private String insuranceName;  
   private String policyNumber;   
-  private Int InvoiceId;  
-  private Int patientId; 
-  private Int age; 
+  private int InvoiceId;  
+  private int patientId; 
+  private int age; 
   private Date policyStartDate; 
   private Date policyEndDate; 
   private Double cost; 
 
-    public Bill(String patientName, String doctorName, String insuranceName, String policyNumber, Int InvoiceId, Int patientId, Int age, Date policyStartDate, Date policyEndDate, Double cost) {
+    public Bill(String patientName, String doctorName, String insuranceName, String policyNumber, int InvoiceId, int patientId, int age, Date policyStartDate, Date policyEndDate, Double cost) {
         this.patientName = patientName;
         this.doctorName = doctorName;
         this.insuranceName = insuranceName;
@@ -56,27 +56,27 @@ public class Bill extends Patient{
         this.policyNumber = policyNumber;
     }
 
-    public Int getInvoiceId() {
+    public int getInvoiceId() {
         return InvoiceId;
     }
 
-    public void setInvoiceId(Int InvoiceId) {
+    public void setInvoiceId(int InvoiceId) {
         this.InvoiceId = InvoiceId;
     }
 
-    public Int getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Int patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
-    public Int getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -104,6 +104,4 @@ public class Bill extends Patient{
         this.cost = cost;
     }
 
-   
-  
 }

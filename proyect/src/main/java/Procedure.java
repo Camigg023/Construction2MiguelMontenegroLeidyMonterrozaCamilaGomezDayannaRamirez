@@ -1,14 +1,14 @@
 
 public class Procedure {
     private String Frequency; 
-    private Int orderNumber; 
-    private Int ProcedureId; 
-    private Int quantity; 
-    private Int specialistcode; 
-    private Int item; 
+    private int orderNumber; 
+    private int ProcedureId; 
+    private int quantity; 
+    private int specialistcode; 
+    private int item; 
     private Boolean requiresSpecialist; 
 
-    public Procedure(String Frequency, Int orderNumber, Int ProcedureId, Int quantity, Int specialistcode, Int item, Boolean requiresSpecialist) {
+    public Procedure(String Frequency, int orderNumber, int ProcedureId, int quantity, int specialistcode, int item, Boolean requiresSpecialist) {
         this.Frequency = Frequency;
         this.orderNumber = orderNumber;
         this.ProcedureId = ProcedureId;
@@ -26,43 +26,43 @@ public class Procedure {
         this.Frequency = Frequency;
     }
 
-    public Int getOrderNumber() {
+    public int getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(Int orderNumber) {
+    public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-    public Int getProcedureId() {
+    public int getProcedureId() {
         return ProcedureId;
     }
 
-    public void setProcedureId(Int ProcedureId) {
+    public void setProcedureId(int ProcedureId) {
         this.ProcedureId = ProcedureId;
     }
 
-    public Int getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Int getSpecialistcode() {
+    public int getSpecialistcode() {
         return specialistcode;
     }
 
-    public void setSpecialistcode(Int specialistcode) {
+    public void setSpecialistcode(int specialistcode) {
         this.specialistcode = specialistcode;
     }
 
-    public Int getItem() {
+    public int getItem() {
         return item;
     }
 
-    public void setItem(Int item) {
+    public void setItem(int item) {
         this.item = item;
     }
 

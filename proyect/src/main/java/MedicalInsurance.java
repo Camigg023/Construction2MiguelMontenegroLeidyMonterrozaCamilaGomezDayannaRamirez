@@ -1,4 +1,4 @@
-
+import java.sql.Date; 
 public class MedicalInsurance {
     private String company;
     private String policyNumber;
@@ -34,6 +34,7 @@ public class MedicalInsurance {
     }
 
     public void setStatus(Boolean status) {
+        
         this.status = status;
     }
 }

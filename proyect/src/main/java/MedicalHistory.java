@@ -1,9 +1,9 @@
-
+import java.sql.Date; 
 public class MedicalHistory {
     private String chiefComplaint;
     private String symptoms;
     private String diagnosis;
-    private Int medicalId;
+    private int medicalId;
     private Date date;
 
     public String getChiefComplaint() {
@@ -30,11 +30,11 @@ public class MedicalHistory {
         this.diagnosis = diagnosis;
     }
 
-    public Int getMedicalId() {
+    public int getMedicalId() {
         return medicalId;
     }
 
-    public void setMedicalId(Int medicalId) {
+    public void setMedicalId(int medicalId) {
         this.medicalId = medicalId;
     }
 

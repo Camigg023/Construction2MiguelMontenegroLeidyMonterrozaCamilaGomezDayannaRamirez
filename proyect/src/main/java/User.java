@@ -1,18 +1,19 @@
-
+import app.domain.model.emuns.Role;
+import java.sql.Date; 
 public class User {
     private String name;
     private String email;
     private String address; 
     private String userName;
     private String password; 
-    private Int identification;
-    private Int phone;
-    private date BirthDay;
-    private rol Role; 
+    private int identification;
+    private int phone;
+    private Date BirthDay;
+    private Role Role; 
 
-    public User(String name, String emai, String address, String userName, String password, Int identification, Int phone, date BirthDay, rol Role) {
+    public User(String name, String email, String address, String userName, String password, int identification, int phone, Date BirthDay, Role Role) {
         this.name = name;
-        this.email = emai;
+        this.email = email;
         this.address = address;
         this.userName = userName;
         this.password = password;
@@ -21,7 +22,7 @@ public class User {
         this.BirthDay = BirthDay;
         this.Role = Role;
     }
-
+    
     
     public String getName() {
         return name;
@@ -35,7 +36,7 @@ public class User {
         return email;
     }
 
-    public void setEmal(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -63,38 +64,35 @@ public class User {
         this.password = password;
     }
 
-    public Int getId() {
-        return id;
+    public int getIdentification() {
+        return identification;
     }
 
-    public void setId(Int id) {
-        this.id = id;
+    public void setIdentification(int identification) {
+        this.identification = identification;
     }
 
-    public Int getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(Int phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
-    public date getDateBirth() {
-        return DateBirth;
+    public Date getBirthDay() {
+        return BirthDay;
     }
 
-    public void setDateBirth(date DateBirth) {
-        this.DateBirth = DateBirth;
+    public void setBirthDay(Date BirthDay) {
+        this.BirthDay = BirthDay;
     }
 
-    public rol getRole() {
+    public Role getRole() {
         return Role;
     }
 
-    public void setRole(rol Role) {
+    public void setRole(Role Role) {
         this.Role = Role;
     }
-
-    
-    
 }

@@ -1,10 +1,9 @@
 
 public class Medication extends Order{
-    public String duration;
+    public String duration;    
 
-    public Medication(String duration,String dosage, Double cost) {
-        super(dosage, cost);
-        this.duration = duration;
+    public Medication(String dosage, int orderNumber, int medicationId, Double cost) {
+        super(dosage, orderNumber, medicationId, cost);
     }
 
     public String getDuration() {

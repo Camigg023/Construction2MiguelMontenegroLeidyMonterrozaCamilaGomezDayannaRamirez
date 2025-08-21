@@ -1,11 +1,11 @@
 
 public class Order {
     private String dosage;
-    private Int orderNumber;
-    private Int medicationId;
+    private int orderNumber;
+    private int medicationId;
     private Double cost; 
 
-    public Order(String dosage, Int orderNumber, Int medicationId, Double cost) {
+    public Order(String dosage, int orderNumber, int medicationId, Double cost) {
         this.dosage = dosage;
         this.orderNumber = orderNumber;
         this.medicationId = medicationId;
@@ -22,19 +22,19 @@ public class Order {
         this.dosage = dosage;
     }
 
-    public Int getOrderNumber() {
+    public int getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(Int orderNumber) {
+    public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-    public Int getMedicationId() {
+    public int getMedicationId() {
         return medicationId;
     }
 
-    public void setMedicationId(Int medicationId) {
+    public void setMedicationId(int medicationId) {
         this.medicationId = medicationId;
     }
 

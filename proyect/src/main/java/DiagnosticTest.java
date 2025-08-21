@@ -1,20 +1,17 @@
 
 public class DiagnosticTest extends Procedure {
    
-    private Int diagnosticId; 
+    private int diagnosticId; 
 
-    public DiagnosticTest(Int diagnosticId, String Frequency, Int orderNumber, Int quantity, Int specialistcode, Int item, Boolean requiresSpecialist) {
-        super(Frequency, orderNumber, quantity, specialistcode, item, requiresSpecialist);
-        this.diagnosticId = diagnosticId;
+    public DiagnosticTest(String Frequency, int orderNumber, int ProcedureId, int quantity, int specialistcode, int item, Boolean requiresSpecialist) {
+        super(Frequency, orderNumber, ProcedureId, quantity, specialistcode, item, requiresSpecialist);
     }
 
-    public Int getDiagnosticId() {
+    public int getDiagnosticId() {
         return diagnosticId;
     }
 
-    public void setDiagnosticId(Int diagnosticId) {
+    public void setDiagnosticId(int diagnosticId) {
         this.diagnosticId = diagnosticId;
     }
-
-  
 }

@@ -1,30 +1,31 @@
+import java.util.List;
 
 public class Inventory {
-   private list medications;
-   private list procedures;
-   private list diagnosticTests;
+   private List medications;
+   private List procedures;
+   private List diagnosticTests;
 
-    public list getMedications() {
+    public List getMedications() {
         return medications;
     }
 
-    public void setMedications(list medications) {
+    public void setMedications(List medications) {
         this.medications = medications;
     }
 
-    public list getProcedures() {
+    public List getProcedures() {
         return procedures;
     }
 
-    public void setProcedures(list procedures) {
+    public void setProcedures(List procedures) {
         this.procedures = procedures;
     }
 
-    public list getDiagnosticTests() {
+    public List getDiagnosticTests() {
         return diagnosticTests;
     }
 
-    public void setDiagnosticTests(list diagnosticTests) {
+    public void setDiagnosticTests(List diagnosticTests) {
         this.diagnosticTests = diagnosticTests;
     }
    
