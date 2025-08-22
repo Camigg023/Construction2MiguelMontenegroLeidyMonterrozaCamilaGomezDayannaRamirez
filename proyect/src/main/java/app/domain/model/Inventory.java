@@ -1,3 +1,5 @@
+package app.domain.model;
+
 import java.util.List;
 
 public class Inventory {

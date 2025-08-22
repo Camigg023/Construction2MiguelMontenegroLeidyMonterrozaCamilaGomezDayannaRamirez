@@ -1,3 +1,5 @@
+package app.domain.model;
+
 
 public class DiagnosticTest extends Procedure {
    

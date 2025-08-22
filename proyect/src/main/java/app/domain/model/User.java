@@ -1,3 +1,5 @@
+package app.domain.model;
+
 import app.domain.model.emuns.Role;
 import java.sql.Date; 
 public class User {
@@ -8,10 +10,10 @@ public class User {
     private String password; 
     private int identification;
     private int phone;
-    private Date BirthDay;
-    private Role Role; 
+    private Date birthDay;
+    private Role role; 
 
-    public User(String name, String email, String address, String userName, String password, int identification, int phone, Date BirthDay, Role Role) {
+    public User(String name, String email, String address, String userName, String password, int identification, int phone, Date birthDay, Role role) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -19,8 +21,8 @@ public class User {
         this.password = password;
         this.identification = identification;
         this.phone = phone;
-        this.BirthDay = BirthDay;
-        this.Role = Role;
+        this.birthDay = birthDay;
+        this.role = role;
     }
     
     
@@ -81,18 +83,18 @@ public class User {
     }
 
     public Date getBirthDay() {
-        return BirthDay;
+        return birthDay;
     }
 
     public void setBirthDay(Date BirthDay) {
-        this.BirthDay = BirthDay;
+        this.birthDay = BirthDay;
     }
 
     public Role getRole() {
-        return Role;
+        return role;
     }
 
-    public void setRole(Role Role) {
-        this.Role = Role;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

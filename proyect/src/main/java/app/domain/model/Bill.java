@@ -1,3 +1,5 @@
+package app.domain.model;
+
 import java.util.Date;
 public class Bill{
   private String patientName;   

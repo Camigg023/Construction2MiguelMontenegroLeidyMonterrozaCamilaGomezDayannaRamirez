@@ -1,3 +1,5 @@
+package app.domain.model;
+
 import java.sql.Date; 
 public class MedicalInsurance {
     private String company;
