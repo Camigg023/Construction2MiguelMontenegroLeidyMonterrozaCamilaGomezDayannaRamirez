@@ -1,109 +1,113 @@
 package app.domain.model;
 
 import java.util.Date;
+
+
 public class Bill{
-  private String patientName;   
-  private String doctorName;  
-  private String insuranceName;  
-  private String policyNumber;   
-  private int InvoiceId;  
-  private int patientId; 
-  private int age; 
-  private Date policyStartDate; 
-  private Date policyEndDate; 
+  
+  private User doctor;  
+  private MedicalInsurance medicalInsurance;    
+  private Patient patient;
+  private Medication medicine;
+  private long InvoiceId;
+  private boolean medication;
   private Double cost; 
+  private Date date;
 
-    public Bill(String patientName, String doctorName, String insuranceName, String policyNumber, int InvoiceId, int patientId, int age, Date policyStartDate, Date policyEndDate, Double cost) {
-        this.patientName = patientName;
-        this.doctorName = doctorName;
-        this.insuranceName = insuranceName;
-        this.policyNumber = policyNumber;
+    public Bill( Patient patient, User doctor, MedicalInsurance medicalInsurance, long InvoiceId, Double cost, boolean medication, Date date) {
+        this.patient = patient;
+        this.doctor = doctor;
+        this.medicalInsurance = medicalInsurance;
         this.InvoiceId = InvoiceId;
-        this.patientId = patientId;
-        this.age = age;
-        this.policyStartDate = policyStartDate;
-        this.policyEndDate = policyEndDate;
         this.cost = cost;
+        this.medication = medication;
+        this.date = date;
+        this.medicine = medicine;
     }
 
-    public String getPatientName() {
-        return patientName;
+    
+    public User getDoctor() {
+        return doctor;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    
+    public void setDoctor(User doctor) {
+        this.doctor = doctor;
     }
 
-    public String getDoctorName() {
-        return doctorName;
+    
+    public MedicalInsurance getMedicalInsurance() {
+        return medicalInsurance;
     }
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
+    
+    public void setMedicalInsurance(MedicalInsurance medicalInsurance) {
+        this.medicalInsurance = medicalInsurance;
     }
 
-    public String getInsuranceName() {
-        return insuranceName;
-    }
-
-    public void setInsuranceName(String insuranceName) {
-        this.insuranceName = insuranceName;
-    }
-
-    public String getPolicyNumber() {
-        return policyNumber;
-    }
-
-    public void setPolicyNumber(String policyNumber) {
-        this.policyNumber = policyNumber;
-    }
-
-    public int getInvoiceId() {
+    
+    public long getInvoiceId() {
         return InvoiceId;
     }
 
-    public void setInvoiceId(int InvoiceId) {
+    
+    public void setInvoiceId(long InvoiceId) {
         this.InvoiceId = InvoiceId;
     }
 
-    public int getPatientId() {
-        return patientId;
+    
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Date getPolicyStartDate() {
-        return policyStartDate;
-    }
-
-    public void setPolicyStartDate(Date policyStartDate) {
-        this.policyStartDate = policyStartDate;
-    }
-
-    public Date getPolicyEndDate() {
-        return policyEndDate;
-    }
-
-    public void setPolicyEndDate(Date policyEndDate) {
-        this.policyEndDate = policyEndDate;
-    }
-
+    
     public Double getCost() {
         return cost;
     }
 
+    
     public void setCost(Double cost) {
         this.cost = cost;
     }
 
+    
+    public boolean isMedication() {
+        return medication;
+    }
+
+    
+    public void setMedication(boolean medication) {
+        this.medication = medication;
+    }
+
+    
+    public Date getDate() {
+        return date;
+    }
+
+   
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    
+    public Medication getMedicine() {
+        return medicine;
+    }
+
+    
+    public void setMedicine(Medication medicine) {
+        this.medicine = medicine;
+    }
+    
+    
+    
+    
+
+    
 }

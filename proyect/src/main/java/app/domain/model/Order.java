@@ -2,16 +2,21 @@ package app.domain.model;
 
 
 public class Order {
+    
     private String dosage;
     private int orderNumber;
     private int medicationId;
     private Double cost; 
+    private User doctor;
+    private Patient patient;
 
     public Order(String dosage, int orderNumber, int medicationId, Double cost) {
         this.dosage = dosage;
         this.orderNumber = orderNumber;
         this.medicationId = medicationId;
         this.cost = cost;
+        this.doctor = doctor;
+        this.patient = patient;
     }
     
     
@@ -46,5 +51,24 @@ public class Order {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+    
+    public User getDoctor() {
+        return doctor;
+    }
+
+    
+    public void setDoctor(User doctor) {
+        this.doctor = doctor;
+    }
+    
+    
+    
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 }
