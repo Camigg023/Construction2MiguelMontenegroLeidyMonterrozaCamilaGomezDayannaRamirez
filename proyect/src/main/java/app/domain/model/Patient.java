@@ -7,7 +7,7 @@ public class Patient {
     private String fullName;
     private Date birthay;
     private String direction;
-    private long telephone_number;
+    private long telephoneNumber;
     private String email;
     private String gender; 
     private MedicalInsurance medicalInsurance;
@@ -18,7 +18,7 @@ public class Patient {
         this.fullName = fullName;
         this.birthay = birthay;
         this.direction = direction;
-        this.telephone_number = telephone_number;
+        this.telephoneNumber = telephone_number;
         this.email = email;
         this.gender = gender;
         this.medicalInsurance = medicalInsurance;
@@ -84,15 +84,15 @@ public class Patient {
     /**
      * @return the telephone_number
      */
-    public long getTelephone_number() {
-        return telephone_number;
+    public long getTelephoneNumber() {
+        return telephoneNumber;
     }
 
     /**
      * @param telephone_number the telephone_number to set
      */
-    public void setTelephone_number(long telephone_number) {
-        this.telephone_number = telephone_number;
+    public void setTelephoneNumber(long telephone_number) {
+        this.telephoneNumber = telephone_number;
     }
 
     /**

@@ -1,6 +1,7 @@
 package app.domain.model;
 
-import java.sql.Date; 
+import java.util.Date; 
+
 public class MedicalHistory {
     private String chiefComplaint;
     private String symptoms;
@@ -47,4 +48,6 @@ public class MedicalHistory {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    
 }
