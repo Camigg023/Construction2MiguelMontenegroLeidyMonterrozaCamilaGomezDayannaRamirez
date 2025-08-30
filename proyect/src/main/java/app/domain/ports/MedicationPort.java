@@ -1,9 +1,9 @@
 
 package app.domain.ports;
 
-import app.domain.model.Medication;
+import app.domain.model.OrderMedication;
 
 public interface MedicationPort {
-     public Medication findByMedicationId (Medication medication) throws Exception;
-        public void save (Medication medication) throws Exception;
+     public OrderMedication findByMedicationId (OrderMedication medication) throws Exception;
+        public void save (OrderMedication medication) throws Exception;
 }

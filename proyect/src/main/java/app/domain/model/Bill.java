@@ -8,7 +8,7 @@ public class Bill{
   private User doctor;  
   private MedicalInsurance medicalInsurance;    
   private Patient patient;
-  private Medication medicine;
+  private OrderMedication medicine;
   private long InvoiceId;
   private boolean medication;
   private Double cost; 
@@ -96,12 +96,12 @@ public class Bill{
     }
 
     
-    public Medication getMedicine() {
+    public OrderMedication getMedicine() {
         return medicine;
     }
 
     
-    public void setMedicine(Medication medicine) {
+    public void setMedicine(OrderMedication medicine) {
         this.medicine = medicine;
     }
     

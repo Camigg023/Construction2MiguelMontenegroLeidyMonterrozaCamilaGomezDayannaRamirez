@@ -4,7 +4,7 @@ import app.domain.model.Patient;
 import app.domain.model.User;
 import app.domain.model.Bill;
 import app.domain.model.MedicalInsurance;
-import app.domain.model.Medication;
+import app.domain.model.OrderMedication;
 import app.domain.ports.PatientPort;
 import app.domain.ports.MedicalInsurancePort;
 import app.domain.ports.MedicationPort;
@@ -34,7 +34,7 @@ public class CreateBill {
         }
         
         if (bill.isMedication()){
-            Medication medication = medicationPort.findByMedicationId(bill.getMedicine());
+            OrderMedication medication = medicationPort.findByMedicationId(bill.getMedicine());
             if(medication != null){
                 throw new Exception ("La factura requiere un medicamento valido");
             }
