@@ -6,7 +6,7 @@ public class MedicalHistory {
     private String chiefComplaint;
     private String symptoms;
     private String diagnosis;
-    private int medicalId;
+    private User doctor;
     private Date date;
 
     public String getChiefComplaint() {
@@ -33,20 +33,20 @@ public class MedicalHistory {
         this.diagnosis = diagnosis;
     }
 
-    public int getMedicalId() {
-        return medicalId;
-    }
-
-    public void setMedicalId(int medicalId) {
-        this.medicalId = medicalId;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public User getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(User doctor) {
+        this.doctor = doctor;
     }
 
     

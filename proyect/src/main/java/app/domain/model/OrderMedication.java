@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import java.util.Date;
+
 
 public class OrderMedication extends Order{
     
@@ -8,8 +10,8 @@ public class OrderMedication extends Order{
     private String duration;  
     private int item;
 
-    public OrderMedication(int idMedication, String dosage, String duration, int item, long orderNumber, User doctor, Patient patient) {
-        super(orderNumber, doctor, patient);
+    public OrderMedication(int idMedication, String dosage, String duration, int item, long orderNumber, User doctor, Patient patient, Date date, double cost) {
+        super(orderNumber, doctor, patient, date, cost);
         this.idMedication = idMedication;
         this.dosage = dosage;
         this.duration = duration;

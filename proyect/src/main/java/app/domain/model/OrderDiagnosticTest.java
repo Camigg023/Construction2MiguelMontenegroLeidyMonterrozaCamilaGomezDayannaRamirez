@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import java.sql.Date;
+
 
 public class OrderDiagnosticTest extends Order {
    
@@ -9,8 +11,8 @@ public class OrderDiagnosticTest extends Order {
     private int specialistcode;
     private int item;
 
-    public OrderDiagnosticTest(int diagnosticId, int quantity, Boolean requiresSpecialist, int specialistcode, int item, long orderNumber, User doctor, Patient patient) {
-        super(orderNumber, doctor, patient);
+    public OrderDiagnosticTest(int diagnosticId, int quantity, Boolean requiresSpecialist, int specialistcode, int item, long orderNumber, User doctor, Patient patient, Date date, double cost) {
+        super(orderNumber, doctor, patient, date, cost);
         this.diagnosticId = diagnosticId;
         this.quantity = quantity;
         this.requiresSpecialist = requiresSpecialist;

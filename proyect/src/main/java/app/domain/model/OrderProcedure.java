@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import java.util.Date;
+
 
 public class OrderProcedure extends Order{
     private long ProcedureId;
@@ -9,8 +11,8 @@ public class OrderProcedure extends Order{
     private int specialistcode; 
     private int item; 
 
-    public OrderProcedure(long ProcedureId, int quantity, String frequency, Boolean requiresSpecialist, int specialistcode, int item, long orderNumber, User doctor, Patient patient) {
-        super(orderNumber, doctor, patient);
+    public OrderProcedure(long ProcedureId, int quantity, String frequency, Boolean requiresSpecialist, int specialistcode, int item, long orderNumber, User doctor, Patient patient, Date date, double cost) {
+        super(orderNumber, doctor, patient, date, cost);
         this.ProcedureId = ProcedureId;
         this.quantity = quantity;
         this.frequency = frequency;

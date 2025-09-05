@@ -8,12 +8,12 @@ public class User {
     private String address; 
     private String userName;
     private String password; 
-    private int identification;
+    private long identification;
     private int phone;
     private Date birthDay;
     private Role role; 
 
-    public User(String name, String email, String address, String userName, String password, int identification, int phone, Date birthDay, Role role) {
+    public User(String name, String email, String address, String userName, String password, long identification, int phone, Date birthDay, Role role) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -66,7 +66,7 @@ public class User {
         this.password = password;
     }
 
-    public int getIdentification() {
+    public long getIdentification() {
         return identification;
     }
 
