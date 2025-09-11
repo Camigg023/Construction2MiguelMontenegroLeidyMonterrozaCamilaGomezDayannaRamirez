@@ -5,6 +5,7 @@ import app.domain.ports.MedicalHistoryPort;
 
 public class CreateMedicalHistory {
     private MedicalHistoryPort medicalHistoryPort;
+   
 
 
     public void create(MedicalHistory medicalHistory) throws Exception {
@@ -19,6 +20,11 @@ public class CreateMedicalHistory {
         if (medicalHistoryPort.findByDiagnosis(medicalHistory) != null) {
             throw new Exception("Ya existe un registro con ese diagnóstico");
         }
+        
+        medicalHistoryPort.save(medicalHistory);
+        
     }
+    
+    
 }
 

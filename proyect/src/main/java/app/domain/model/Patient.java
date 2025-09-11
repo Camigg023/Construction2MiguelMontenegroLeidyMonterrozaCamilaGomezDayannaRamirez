@@ -96,6 +96,10 @@ public class Patient {
     public void setEmergencyContact(EmergencyContact emergencyContact) {
         this.emergencyContact = emergencyContact;
     }
+
+    public Long getMedicalId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
