@@ -2,11 +2,11 @@
 package app.domain.services;
 
 import app.domain.model.User;
-import app.domain.ports.UsePort;
+import app.domain.ports.UserPort;
 
 
 public class CreateUser {
-    private UsePort userPort;
+    private UserPort userPort;
     
     public void create (User user) throws Exception{
         if (userPort.findByDocument(user) != null){

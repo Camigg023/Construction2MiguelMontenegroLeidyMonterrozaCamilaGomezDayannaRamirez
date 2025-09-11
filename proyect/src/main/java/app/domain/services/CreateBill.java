@@ -10,13 +10,13 @@ import app.domain.ports.PatientPort;
 import app.domain.ports.MedicalInsurancePort;
 import app.domain.ports.OrderMedicationPort;
 import app.domain.ports.BillPort;
-import app.domain.ports.UsePort;
+import app.domain.ports.UserPort;
         
 public class CreateBill {
     
     private PatientPort patientPort;
     private OrderMedicationPort medicationPort;
-    private UsePort userPort;
+    private UserPort userPort;
     private MedicalInsurancePort insurancePort;
     private BillPort billPort;
     private User user;
