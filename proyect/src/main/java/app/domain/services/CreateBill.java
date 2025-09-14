@@ -11,14 +11,22 @@ import app.domain.ports.MedicalInsurancePort;
 import app.domain.ports.OrderMedicationPort;
 import app.domain.ports.BillPort;
 import app.domain.ports.UserPort;
-        
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class CreateBill {
-    
+    @Autowired
     private PatientPort patientPort;
+    @Autowired
     private OrderMedicationPort medicationPort;
+    @Autowired
     private UserPort userPort;
+    @Autowired
     private MedicalInsurancePort insurancePort;
+    @Autowired
     private BillPort billPort;
+    @Autowired
     private User user;
     
     public void create (Bill bill) throws Exception{

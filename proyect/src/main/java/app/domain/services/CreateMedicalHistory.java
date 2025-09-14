@@ -1,30 +1,36 @@
 package app.domain.services;
 
+
 import app.domain.model.MedicalHistory;
+import app.domain.model.User;
+import app.domain.model.emuns.Role;
 import app.domain.ports.MedicalHistoryPort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateMedicalHistory {
-    private MedicalHistoryPort medicalHistoryPort;
-   
 
+    private final MedicalHistoryPort medicalHistoryPort;
 
-    public void create(MedicalHistory medicalHistory) throws Exception {
-        if (medicalHistoryPort.findByDate(medicalHistory) != null) {
-            throw new Exception("Ya existe un registro con esa fecha");
+    @Autowired
+    public CreateMedicalHistory(MedicalHistoryPort medicalHistoryPort) {
+        this.medicalHistoryPort = medicalHistoryPort;
+    }
+
+    public void create(MedicalHistory medicalHistory, User doctor) throws Exception {
+        // Validar rol
+        if (doctor == null || !doctor.getRole().equals(Role.DOCTORS)) {
+            throw new Exception("Solo los médicos pueden crear historias clínicas");
         }
 
-        if (medicalHistoryPort.findByMedicalId(medicalHistory) != null) {
-            throw new Exception("Ya existe un registro con ese doctor");
-        }
+        medicalHistory.setDoctor(doctor);
 
-        if (medicalHistoryPort.findByDiagnosis(medicalHistory) != null) {
-            throw new Exception("Ya existe un registro con ese diagnóstico");
+        if (medicalHistory.getDate() == null) {
+            medicalHistory.setDate(new java.util.Date());
         }
         
         medicalHistoryPort.save(medicalHistory);
-        
     }
-    
-    
 }
 

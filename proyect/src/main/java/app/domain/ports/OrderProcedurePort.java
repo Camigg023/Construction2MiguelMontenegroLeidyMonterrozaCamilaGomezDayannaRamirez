@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrderProcedurePort {
     public OrderProcedure FindbyOrderNumber (OrderProcedure orderProcedure) throws Exception;
-    public OrderProcedure FindbyMedicationId (OrderProcedure orderProcedure) throws Exception;
+    List<OrderProcedure> findByPatientId(Long patientId) throws Exception;
     public List<OrderProcedure> findByPatient(Patient patient) throws Exception;
         public void save (OrderProcedure orderProcedure) throws Exception;
     

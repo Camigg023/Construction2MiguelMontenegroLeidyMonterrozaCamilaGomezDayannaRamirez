@@ -1,5 +1,6 @@
 package app.domain.services;
 
+import app.domain.model.Order;
 import app.domain.ports.PatientPort;
 import app.domain.model.OrderProcedure;
 import app.domain.model.OrderMedication;
@@ -11,66 +12,61 @@ import app.domain.ports.OrderProcedurePort;
 import app.domain.ports.OrderMedicationPort;
 import app.domain.ports.OrderDiagnosticTestPort;
 import app.domain.ports.UserPort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateOrder {
-    private UserPort userPort;
-    private PatientPort patientPort;
-    private OrderProcedurePort orderProcedurePort;
-    private OrderMedicationPort orderMedicationPort;
-    private OrderDiagnosticTestPort orderDiagnosticTestPort;
+    @Autowired
+    private final UserPort userPort;
+    @Autowired
+    private final PatientPort patientPort;
+    @Autowired
+    private final OrderProcedurePort orderProcedurePort;
+    @Autowired
+    private final OrderMedicationPort orderMedicationPort;
+    @Autowired
+    private final OrderDiagnosticTestPort orderDiagnosticTestPort;
     
-    public void createProcedure (OrderProcedure orderProcedure) throws Exception {
-        User doctor = userPort.findByDocument(orderProcedure.getDoctor());
-        if (doctor == null || !doctor.getRole().equals(Role.DOCTORS)){
-            throw new Exception ("Las ordenes solo pueden creadas por los medicos");
+    
+    public CreateOrder(UserPort userPort, PatientPort patientPort,
+                      OrderProcedurePort orderProcedurePort,
+                      OrderMedicationPort orderMedicationPort,
+                      OrderDiagnosticTestPort orderDiagnosticTestPort) {
+        this.userPort = userPort;
+        this.patientPort = patientPort;
+        this.orderProcedurePort = orderProcedurePort;
+        this.orderMedicationPort = orderMedicationPort;
+        this.orderDiagnosticTestPort = orderDiagnosticTestPort;
+    }
+
+    private void validateOrder(Order order) throws Exception {
+        User doctor = userPort.findByDocument(order.getDoctor());
+        if (doctor == null || !doctor.getRole().equals(Role.DOCTORS)) {
+            throw new Exception("Las órdenes solo pueden ser creadas por médicos");
         }
         
-        Patient patient = patientPort.findById(orderProcedure.getPatient());
-        
-        if (patient == null){
-            throw new Exception ("La orden debe estar asociada a un paciente existente");
+        Patient patient = patientPort.findById(order.getPatient());
+        if (patient == null) {
+            throw new Exception("La orden debe estar asociada a un paciente existente");
         }
         
-        orderProcedure.setDoctor(doctor);
-        orderProcedure.setPatient(patient);
-        
+        order.setDoctor(doctor);
+        order.setPatient(patient);
+    }
+    
+    public void createProcedure(OrderProcedure orderProcedure) throws Exception {
+        validateOrder(orderProcedure);
         orderProcedurePort.save(orderProcedure);
-        
     }
     
-    public void createOrderMedication (OrderMedication orderMedication) throws Exception {
-        User doctor = userPort.findByDocument(orderMedication.getDoctor());
-        if (doctor == null || !doctor.getRole().equals(Role.DOCTORS)){
-            throw new Exception ("Las ordenes solo pueden creadas por los medicos");
-        }
-        
-        Patient patient = patientPort.findById(orderMedication.getPatient());
-        
-        if (patient == null){
-            throw new Exception ("La orden debe estar asociada a un paciente existente");
-        }
-        
-        orderMedication.setDoctor(doctor);
-        orderMedication.setPatient(patient);
-        
-        orderMedicationPort.save(orderMedication);     
+    public void createOrderMedication(OrderMedication orderMedication) throws Exception {
+        validateOrder(orderMedication);
+        orderMedicationPort.save(orderMedication);
     }
     
-    public void createOrderDiagnosticTest (OrderDiagnosticTest orderDiagnosticTest) throws Exception {
-        User doctor = userPort.findByDocument(orderDiagnosticTest.getDoctor());
-        if (doctor == null || !doctor.getRole().equals(Role.DOCTORS)){
-            throw new Exception ("Las ordenes solo pueden creadas por los medicos");
-        }
-        
-        Patient patient = patientPort.findById(orderDiagnosticTest.getPatient());
-        
-        if (patient == null){
-            throw new Exception ("La orden debe estar asociada a un paciente existente");
-        }
-        
-        orderDiagnosticTest.setDoctor(doctor);
-        orderDiagnosticTest.setPatient(patient);
-        
-        orderDiagnosticTestPort.save(orderDiagnosticTest);        
+    public void createOrderDiagnosticTest(OrderDiagnosticTest orderDiagnosticTest) throws Exception {
+        validateOrder(orderDiagnosticTest);
+        orderDiagnosticTestPort.save(orderDiagnosticTest);
     }
 }

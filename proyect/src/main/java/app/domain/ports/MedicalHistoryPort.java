@@ -1,15 +1,10 @@
-
 package app.domain.ports;
+
 import app.domain.model.MedicalHistory;
-import app.domain.model.Patient;
+import java.util.List;
 
 public interface MedicalHistoryPort {
-    public Patient findByIdentification (Patient patient) throws Exception;
-    public MedicalHistory findByMedicalId (MedicalHistory medicalHistory) throws Exception;
-    public MedicalHistory findByDate (MedicalHistory medicalHistory) throws Exception;
-    public MedicalHistory findByDiagnosis (MedicalHistory medicalHistory) throws Exception;
-        public void save (Patient patient) throws Exception;
-        public void save (MedicalHistory medicalHistory) throws Exception;
-
-   
+    void save(MedicalHistory medicalHistory) throws Exception;
+    MedicalHistory findById(Long id) throws Exception;
+    List<MedicalHistory> findByPatientId(Long patientId) throws Exception;
 }

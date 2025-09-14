@@ -5,11 +5,15 @@ import app.domain.model.User;
 import app.domain.model.Patient;
 import app.domain.ports.PatientPort;
 import app.domain.model.emuns.Role;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreatePatient {
     
-    
+    @Autowired
     private PatientPort patientPort;
+    @Autowired
     private User user;
     public void create (Patient patient) throws Exception{
         
