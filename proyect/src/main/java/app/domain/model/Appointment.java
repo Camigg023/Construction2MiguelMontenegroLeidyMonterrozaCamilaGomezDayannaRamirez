@@ -10,7 +10,7 @@ public class Appointment {
     private String reason;
     private String status;
     private Patient patient;
-    private int doctorId;
+    private User doctor;
     private String appointmentType;
 
     public int getAppointmentId() {
@@ -60,13 +60,13 @@ public class Appointment {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
-    public int getDoctorId() {
-        return doctorId;
+    
+    public User getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
+    public void setDoctor(User doctor) {
+        this.doctor = doctor;
     }
 
     public String getAppointmentType() {
@@ -76,4 +76,6 @@ public class Appointment {
     public void setAppointmentType(String appointmentType) {
         this.appointmentType = appointmentType;
     }
+
+
 }

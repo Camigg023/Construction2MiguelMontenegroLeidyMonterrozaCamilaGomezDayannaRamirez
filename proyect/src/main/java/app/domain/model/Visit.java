@@ -8,6 +8,7 @@ public class Visit {
     private Date visitDate;
     private String startTime;
     private String endTime;
+    private Patient patient;
     private String notes;
 
     public int getVisitId() {
@@ -49,4 +50,13 @@ public class Visit {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    
 }
