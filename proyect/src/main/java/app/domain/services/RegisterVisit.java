@@ -21,7 +21,7 @@ public class RegisterVisit {
         this.patientPort = patientPort;
     }
 
-    private void validateAdminStaff(User user) throws Exception {
+    private void validateNurse(User user) throws Exception {
         if (user == null || !user.getRole().equals(Role.NURSES)) {
             throw new Exception("Solo las enfermeras pueden registrar visitas");
         }
@@ -29,7 +29,7 @@ public class RegisterVisit {
 
     public void register(User admin, Visit visit) throws Exception {
         
-        validateAdminStaff(admin);
+        validateNurse(admin);
 
         Patient patient = patientPort.findById(visit.getPatient());
         if (patient == null) {
