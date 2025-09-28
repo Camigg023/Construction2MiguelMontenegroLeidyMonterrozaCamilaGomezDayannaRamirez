@@ -20,24 +20,24 @@ public class CreateAppointment {
     public void validateAppointment(Appointment appointment) throws Exception {
         User administrative = userPort.findByDocument(appointment.getDoctor());
         if (administrative == null || !administrative.getRole().equals(Role.ADMINISTRATIVESTAFF)) {
-            throw new Exception("Las citas solo pueden ser creadas por el personal administrativo");
+            throw new Exception("Las citas solo pueden ser creadas por el personal administrativo.");
         }
         
         Patient patient = patientPort.findById(appointment.getPatient());
         if (patient == null) {
-            throw new Exception("La orden debe estar asociada a un paciente existente");
+            throw new Exception("La orden debe estar asociada a un paciente existente.");
         }
         
         User doctor = userPort.findByDocument(appointment.getDoctor());
         if (doctor == null) {
-            throw new Exception("La orden debe estar asociada a un doctor existente");
+            throw new Exception("La cita debe tener un doctor asignado.");
         }
 
         appointment.setDoctor(doctor);
         appointment.setPatient(patient);
     }
     
-    public void CreateAppointment (Appointment appointment) throws Exception {
+    public void create (Appointment appointment) throws Exception {
         validateAppointment (appointment);
         appointmentPort.save(appointment);
     }

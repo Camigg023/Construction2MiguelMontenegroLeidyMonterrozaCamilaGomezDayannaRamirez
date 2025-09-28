@@ -1,6 +1,7 @@
 
 package app.application.usecases;
 
+import app.domain.model.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import app.domain.model.Patient;
 import app.domain.model.Bill;
 import app.domain.model.EmergencyContact;
+import app.domain.services.CreateAppointment;
 import app.domain.services.CreatePatient;
 import app.domain.services.CreateBill;
 import app.domain.services.CreateEmergencyContact;
@@ -20,6 +22,7 @@ public class AdminPersonal {
     private CreateBill createBill;
     private UpdatePatient updatePatient;
     private CreateEmergencyContact createEmergencyContact;
+    private CreateAppointment createAppointment;
     
     public void createPatient (Patient patient) throws Exception{
         createPatient.create(patient);
@@ -35,6 +38,10 @@ public class AdminPersonal {
     
     public void createContact(EmergencyContact emergencyContact) throws Exception{
         createEmergencyContact.create(emergencyContact);
+    }
+    
+    public void createAppoint (Appointment appointment) throws Exception {
+        createAppointment.create(appointment);
     }
    
 }

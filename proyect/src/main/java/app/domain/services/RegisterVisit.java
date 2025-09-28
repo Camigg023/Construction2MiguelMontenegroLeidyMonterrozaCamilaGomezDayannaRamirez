@@ -27,9 +27,9 @@ public class RegisterVisit {
         }
     }
 
-    public void register(User admin, Visit visit) throws Exception {
+    public void register(User nurse, Visit visit) throws Exception {
         
-        validateNurse(admin);
+        validateNurse(nurse);
 
         Patient patient = patientPort.findById(visit.getPatient());
         if (patient == null) {

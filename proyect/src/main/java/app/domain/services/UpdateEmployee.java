@@ -17,7 +17,7 @@ public class UpdateEmployee {
     public User updateE(User user) throws Exception {
         
         if (!user.getRole().equals(Role.HUMANRESOURCE)) {
-            throw new Exception("Solo el personal de recursos humanos puede actualizar pacientes.");
+            throw new Exception("Solo el personal de recursos humanos puede actualizar empleados.");
         }
 
         

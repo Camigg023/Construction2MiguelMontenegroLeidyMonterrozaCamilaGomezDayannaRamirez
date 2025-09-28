@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import app.domain.model.Patient;
 import app.domain.model.User;
+import app.domain.model.Visit;
+import app.domain.services.RegisterVisit;
 import app.domain.services.SearchOrder;
 import app.domain.services.SearchPatient;
 
@@ -21,21 +23,27 @@ public class Nurses {
     @Autowired
     private SearchOrder searchOrder;
     @Autowired 
-    private User doctor;
+    private User employee;
+    @Autowired
+    private RegisterVisit registerVisit;
     
     public Patient SearchByPatient (Patient patient) throws Exception{
         return searchPatient.search(patient);
     }
     
     public void searchProcedure (OrderProcedure orderProcedure) throws Exception{
-        searchOrder.searchProcedures(doctor, Long.MAX_VALUE);
+        searchOrder.searchProcedures(employee, Long.MAX_VALUE);
     }
     
     public void searchDiagnostic (OrderDiagnosticTest orderDiagnosticTest) throws Exception{
-        searchOrder.searchDiagnostics(doctor, Long.MAX_VALUE);
+        searchOrder.searchDiagnostics(employee, Long.MAX_VALUE);
     }
     
     public void searchOrderMedication (OrderMedication orderMedication) throws Exception{
-        searchOrder.searchMedications(doctor, Long.MAX_VALUE);
+        searchOrder.searchMedications(employee, Long.MAX_VALUE);
+    }
+    
+    public void registerVisitPatient (Visit visit) throws Exception {
+        registerVisit.register(employee, visit);
     }
 }
