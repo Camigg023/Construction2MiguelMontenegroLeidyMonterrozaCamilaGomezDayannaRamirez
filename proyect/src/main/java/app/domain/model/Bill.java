@@ -1,15 +1,19 @@
 package app.domain.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.Date;
 
-
+@Entity
 public class Bill{
-  
+    
+   @Id
+  private long InvoiceId;
+   
   private User doctor;  
   private MedicalInsurance medicalInsurance;    
   private Patient patient;
-  private OrderMedication medicine;
-  private long InvoiceId;
+  private OrderMedication medicine;  
   private boolean medication;
   private Double cost; 
   private Date date;

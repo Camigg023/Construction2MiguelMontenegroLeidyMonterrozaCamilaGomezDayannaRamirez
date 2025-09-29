@@ -1,12 +1,27 @@
 package app.domain.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.List;
 
+@Entity
 public class Inventory {
+    
+  @Id
+   private int id;
    private List medications;
    private List procedures;
    private List diagnosticTests;
+   
+   public int getId() {
+       return id;
+   }
+   
+   public void setId(int id) {
+        this.id = id;
+    }
 
+   
     public List getMedications() {
         return medications;
     }

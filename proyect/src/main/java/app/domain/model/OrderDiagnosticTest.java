@@ -1,10 +1,13 @@
 package app.domain.model;
 
 import java.sql.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
+@Entity
 public class OrderDiagnosticTest extends Order {
-   
+    
+    @Id 
     private int diagnosticId;
     private int quantity;
     private Boolean requiresSpecialist; 

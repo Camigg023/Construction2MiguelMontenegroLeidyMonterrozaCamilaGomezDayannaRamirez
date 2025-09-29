@@ -6,12 +6,16 @@ import app.domain.model.Patient;
 import app.domain.model.User;
 import app.domain.model.emuns.Role;
 import app.domain.ports.PatientPort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CreateEmergencyContact {
+    @Autowired
     private PatientPort patientPort;
+    @Autowired
     private User user;
+    @Autowired
     private Patient patient;
     
     public void create(EmergencyContact emergencyContact) throws Exception{

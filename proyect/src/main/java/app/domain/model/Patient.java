@@ -2,8 +2,16 @@ package app.domain.model;
 
 
 import java.sql.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Patient {
+    
+    @Id
     private long id_patient;
+    
+    
     private String fullName;
     private Date birthay;
     private String direction;

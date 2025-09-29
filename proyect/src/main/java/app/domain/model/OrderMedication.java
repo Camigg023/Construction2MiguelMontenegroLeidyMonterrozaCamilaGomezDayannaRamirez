@@ -1,11 +1,15 @@
 package app.domain.model;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
+@Entity
 public class OrderMedication extends Order{
     
+    @Id
     private int idMedication;
+    
     private String dosage;
     private String duration;  
     private int item;

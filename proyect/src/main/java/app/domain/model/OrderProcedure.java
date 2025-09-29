@@ -1,10 +1,15 @@
 package app.domain.model;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
+@Entity
 public class OrderProcedure extends Order{
+    
+    @Id
     private long ProcedureId;
+    
     private int quantity; 
     private String frequency;
     private Boolean requiresSpecialist; 

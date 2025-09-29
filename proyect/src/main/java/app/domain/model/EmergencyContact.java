@@ -1,11 +1,17 @@
 package app.domain.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity 
 public class EmergencyContact {
-
+    
+    @Id
+    private int phone;
+    
     private String name; 
     private String relationShip; 
-    private int phone; 
+     
     
     public String getName() {
         return name;

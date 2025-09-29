@@ -1,10 +1,15 @@
 package app.domain.model;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
+@Entity
 public class Visit {
+    
+    @Id
     private int visitId;
+    
     private Date visitDate;
     private String startTime;
     private String endTime;

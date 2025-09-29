@@ -8,17 +8,22 @@ import app.domain.ports.AppointmentPort;
 import app.domain.ports.PatientPort;
 import app.domain.ports.UserPort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateAppointment {
-    @Autowired
-    private  AppointmentPort appointmentPort;
-    @Autowired
+    
+    @Autowired 
+    private AppointmentPort appointmentPort;
+    @Autowired 
     private UserPort userPort;
-    @Autowired
+    @Autowired 
     private PatientPort patientPort;
     
-    public void validateAppointment(Appointment appointment) throws Exception {
-        User administrative = userPort.findByDocument(appointment.getDoctor());
+         
+    
+   public void validateAppointment(Appointment appointment) throws Exception {
+        User administrative = userPort.findByDocument(appointment.getAdministrative());
         if (administrative == null || !administrative.getRole().equals(Role.ADMINISTRATIVESTAFF)) {
             throw new Exception("Las citas solo pueden ser creadas por el personal administrativo.");
         }

@@ -2,13 +2,20 @@ package app.domain.model;
 
 import app.domain.model.emuns.Role;
 import java.sql.Date; 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
+    
+    @Id
+     private long identification;
+     
     private String name;
     private String email;
     private String address; 
     private String userName;
     private String password; 
-    private long identification;
     private int phone;
     private Date birthDay;
     private Role role; 
