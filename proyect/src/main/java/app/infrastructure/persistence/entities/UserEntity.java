@@ -1,5 +1,5 @@
 
-package app.infrastructure.persistence.entity;
+package app.infrastructure.persistence.entities;
 
 import app.domain.model.emuns.Role;
 import jakarta.persistence.Column;
@@ -42,10 +42,8 @@ public class UserEntity {
     @Column(name = "birth_day")
     private Date birthDay;
     
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false, length = 30)
-    private Role role; 
-    
+    @Column(nullable = false, length = 50)
+    private String role;
     
     public UserEntity() {}
 
@@ -114,11 +112,13 @@ public class UserEntity {
         this.birthDay = birthDay;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
+
+    
 }

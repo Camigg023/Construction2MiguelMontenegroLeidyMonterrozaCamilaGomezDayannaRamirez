@@ -1,5 +1,5 @@
 
-package app.infrastructure.persistence.entity;
+package app.infrastructure.persistence.entities;
 
 import app.domain.model.Patient;
 import app.domain.model.User;
@@ -16,7 +16,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "order_diagnostics")
-public class OrderDiagnostic {
+public class OrderDiagnosticEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

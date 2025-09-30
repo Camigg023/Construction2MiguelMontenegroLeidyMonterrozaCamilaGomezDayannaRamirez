@@ -1,5 +1,5 @@
 
-package app.infrastructure.persistence.entity;
+package app.infrastructure.persistence.entities;
 
 import app.domain.model.EmergencyContact;
 import app.domain.model.MedicalInsurance;

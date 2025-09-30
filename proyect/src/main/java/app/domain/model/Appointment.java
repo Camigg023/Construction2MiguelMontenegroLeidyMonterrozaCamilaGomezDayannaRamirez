@@ -91,7 +91,4 @@ public class Appointment {
         return appointmentType;
     }
     
-
-    
-
 }
