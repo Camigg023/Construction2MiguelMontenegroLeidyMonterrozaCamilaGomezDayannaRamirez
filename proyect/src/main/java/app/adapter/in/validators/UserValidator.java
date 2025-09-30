@@ -9,8 +9,8 @@ import app.domain.model.User;
 @Component
 public class UserValidator extends SimpleValidator {
 
-    public long idValidator(String value) throws Exception {
-        return longValidator("identificación del doctor", value);
+    public long identificationValidator(long value) throws Exception {
+    return longValidator("identificación del doctor", String.valueOf(value));
     }
 
     public String nameValidator(String value) throws Exception {
@@ -33,8 +33,8 @@ public class UserValidator extends SimpleValidator {
         return stringValidator("contraseña del doctor", value);
     }
 
-    public int phoneValidator(String value) throws Exception {
-        return integerValidator("teléfono del doctor", value);
+    public long phoneValidator(long value) throws Exception {
+    return longValidator("teléfono del doctor", String.valueOf(value));
     }
 
     public Date birthDayValidator(String value) throws Exception {
@@ -47,4 +47,6 @@ public class UserValidator extends SimpleValidator {
             throw new InputsException("La fecha de nacimiento debe tener formato yyyy-MM-dd");
         }
     }
+
+    
 }

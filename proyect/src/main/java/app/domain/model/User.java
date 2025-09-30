@@ -2,35 +2,23 @@ package app.domain.model;
 
 import app.domain.model.emuns.Role;
 import java.sql.Date; 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity
 public class User {
     
-    @Id
-     private long identification;
-     
+    private long identification;
     private String name;
     private String email;
     private String address; 
     private String userName;
     private String password; 
-    private int phone;
+    private long phone;
     private Date birthDay;
     private Role role; 
 
-    public User() {
+    public User () {
     }
-
-    public long getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(long identification) {
-        this.identification = identification;
-    }
-
+    
+    
     public String getName() {
         return name;
     }
@@ -71,11 +59,19 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone() {
+    public long getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(Long identification) {
+        this.identification = identification;
+    }
+
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -83,8 +79,8 @@ public class User {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthDay(Date BirthDay) {
+        this.birthDay = BirthDay;
     }
 
     public Role getRole() {
@@ -94,6 +90,4 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
-    
-    
 }

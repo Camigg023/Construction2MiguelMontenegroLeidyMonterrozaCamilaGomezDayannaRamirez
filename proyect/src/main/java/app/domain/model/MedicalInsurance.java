@@ -1,19 +1,19 @@
 package app.domain.model;
 
-
-
 import java.sql.Date; 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-@Entity
+
+
 public class MedicalInsurance {
     
-    @Id
-    private String policyNumber;
-            
+    private String policyNumber;    
     private String company;
     private Date validity;
     private Boolean status;
+    
+     public MedicalInsurance () {
+    }
 
     public String getCompany() {
         return company;

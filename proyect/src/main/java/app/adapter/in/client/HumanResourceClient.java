@@ -12,7 +12,7 @@ import app.domain.model.User;
 @Controller
 public class HumanResourceClient {
 
-    private static final String MENU = "Opciones:\n1. Crear empleado\n2. Eliminar empleado\n3. Salir";
+    private static final String MENU = "Opciones:\n1. Crear empleado\n2. Actualizar empleado\n3. Salir";
     private static Scanner reader = new Scanner(System.in);
 
     @Autowired
@@ -39,9 +39,9 @@ public class HumanResourceClient {
                 }
                 case "2": {
                     System.out.println("Ingrese el ID del empleado a actualizar:");
-                    String id = reader.nextLine();
-                    User updatedUser = readInfoFromUser(); // pedimos nuevos datos
-                    updatedUser.setIdentification(Long.parseLong(id)); // mantenemos el mismo ID
+                    String identification = reader.nextLine();
+                    User updatedUser = readInfoFromUser(); 
+                    updatedUser.setIdentification(Long.parseLong(identification)); 
                     humanResourceUseCase.updateEmplo(updatedUser);
                     return true;
                 }
@@ -61,7 +61,8 @@ public class HumanResourceClient {
 
     private User readInfoFromUser() throws Exception {
         System.out.println("Ingrese id:");
-        String id = reader.nextLine();
+        long identification = Long.parseLong(reader.nextLine());
+
         System.out.println("Ingrese nombre:");
         String name = reader.nextLine();
         System.out.println("Ingrese email:");
@@ -73,13 +74,14 @@ public class HumanResourceClient {
         System.out.println("Ingrese contraseña:");
         String password = reader.nextLine();
         System.out.println("Ingrese teléfono:");
-        String phone = reader.nextLine();
+        long phone = Long.parseLong(reader.nextLine());
         System.out.println("Ingrese fecha de nacimiento (yyyy-MM-dd):");
         String birthDay = reader.nextLine();
 
-        return userBuilder.build(id, name, email, address, userName, password, phone, birthDay);
+        return userBuilder.build(identification, name, email, address, userName, password, phone, birthDay);
     }
 }
+
 
 
 

@@ -2,18 +2,14 @@ package app.domain.model;
 
 
 import java.sql.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity
 public class Patient {
     
-    @Id
-    private long id_patient;
+    private long idPatient;
     
     
     private String fullName;
-    private Date birthay;
+    private Date birthday;
     private String direction;
     private long telephoneNumber;
     private String email;
@@ -21,27 +17,15 @@ public class Patient {
     private MedicalInsurance medicalInsurance;
     private EmergencyContact emergencyContact;
 
-    public Patient(long id_patient, String fullName, Date birthay, String direction, long telephone_number, String email, String gender, MedicalInsurance medicalInsurance, EmergencyContact emergencyContact) {
-        this.id_patient = id_patient;
-        this.fullName = fullName;
-        this.birthay = birthay;
-        this.direction = direction;
-        this.telephoneNumber = telephone_number;
-        this.email = email;
-        this.gender = gender;
-        this.medicalInsurance = medicalInsurance;
-        this.emergencyContact = emergencyContact;
-    }
-    
-    public Patient() {
-}
-
-    public long getId_patient() {
-        return id_patient;
+    public Patient () {
     }
 
-    public void setId_patient(long id_patient) {
-        this.id_patient = id_patient;
+    public long getIdPatient() {
+        return idPatient;
+    }
+
+    public void setIdPatient(long idPatient) {
+        this.idPatient = idPatient;
     }
 
     public String getFullName() {
@@ -52,12 +36,12 @@ public class Patient {
         this.fullName = fullName;
     }
 
-    public Date getBirthay() {
-        return birthay;
+    public Date getBirthday() {
+        return birthday;
     }
 
     public void setBirthay(Date birthay) {
-        this.birthay = birthay;
+        this.birthday = birthay;
     }
 
     public String getDirection() {
@@ -108,15 +92,15 @@ public class Patient {
         this.emergencyContact = emergencyContact;
     }
 
-    public Long getMedicalId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
-    
-    
     
     
 }
+    
+    
+    
+    
+    
+    
+
 
 

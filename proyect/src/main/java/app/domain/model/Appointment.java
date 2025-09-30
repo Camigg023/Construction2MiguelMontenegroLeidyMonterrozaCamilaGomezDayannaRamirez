@@ -1,13 +1,10 @@
 package app.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import java.util.Date;
 
-@Entity 
 public class Appointment {
     
-    @Id
+    
     private int appointmentId;
     
     private Date date;

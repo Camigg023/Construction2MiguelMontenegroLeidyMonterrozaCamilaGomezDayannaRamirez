@@ -1,16 +1,10 @@
 package app.domain.model;
 
 import java.util.Date; 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity 
 public class MedicalHistory {
     
-    @Id
     private int id;
-
-   
     private String chiefComplaint;
     private String symptoms;
     private String diagnosis;

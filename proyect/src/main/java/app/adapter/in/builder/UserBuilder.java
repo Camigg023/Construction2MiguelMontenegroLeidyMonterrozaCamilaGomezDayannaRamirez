@@ -10,40 +10,44 @@ import app.adapter.in.validators.UserValidator;
 @Component
 public class UserBuilder {
 
-    @Autowired
+ @Autowired
     private UserValidator validator;
 
+ 
     public User build(
-            String idStr,
+            long identification,
             String name,
             String email,
             String address,
             String userName,
             String password,
-            String phoneStr,
+            long phone,
             String birthDayStr
     ) throws Exception {
+        
+    
+
 
         // Validaciones
-        long id = validator.idValidator(idStr);
+        long validatedIdentification = validator.identificationValidator(identification);
         String validatedName = validator.nameValidator(name);
         String validatedEmail = validator.emailValidator(email);
         String validatedAddress = validator.addressValidator(address);
         String validatedUserName = validator.userNameValidator(userName);
         String validatedPassword = validator.passwordValidator(password);
-        int phone = validator.phoneValidator(phoneStr);
-        Date birthDay = validator.birthDayValidator(birthDayStr);
+        long validatedPhone = validator.phoneValidator(phone);
+        Date validatedBirthDay = validator.birthDayValidator(birthDayStr);
 
-        // Construcción del objeto Doctor (User)
+        // Construcción del objeto User
         User doctor = new User();
-        doctor.setIdentification(id);
+        doctor.setIdentification(validatedIdentification);
         doctor.setName(validatedName);
         doctor.setEmail(validatedEmail);
         doctor.setAddress(validatedAddress);
         doctor.setUserName(validatedUserName);
         doctor.setPassword(validatedPassword);
-        doctor.setPhone(phone);
-        doctor.setBirthDay(birthDay);
+        doctor.setPhone(validatedPhone);
+        doctor.setBirthDay(validatedBirthDay);
         doctor.setRole(app.domain.model.emuns.Role.DOCTORS);
 
         return doctor;

@@ -1,14 +1,17 @@
 package app.domain.model;
 
+import jakarta.persistence.Entity;
 import java.sql.Date;
 
 
 public class Order {
+    
     private User doctor;
     private Patient patient;
     private Date date;
     private double cost;
 
+    
     public Order() {
     }
 

@@ -18,7 +18,7 @@ public class PatientBuilder {
         Patient patient = new Patient();
         
         // Validaciones
-        patient.setId_patient(patientValidator.documentValidator(id)); 
+        patient.setIdPatient(patientValidator.documentValidator(id)); 
         patient.setFullName(patientValidator.nameValidator(name));
         patient.setBirthay(patientValidator.birthDateValidator(birthDate)); 
         patient.setDirection(patientValidator.addressValidator(address));

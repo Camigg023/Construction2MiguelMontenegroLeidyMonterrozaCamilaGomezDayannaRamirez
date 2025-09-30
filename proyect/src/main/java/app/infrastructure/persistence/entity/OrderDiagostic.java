@@ -1,22 +1,52 @@
-package app.domain.model;
 
+package app.infrastructure.persistence.entity;
+
+import app.domain.model.Patient;
+import app.domain.model.User;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import java.util.Date;
 
-
-public class OrderMedication{
+@Entity
+@Table(name = "order_medication")
+public class OrderDiagostic {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_medication")
     private int idMedication;
     
+    @Column(nullable = false, length = 100)
     private String dosage;
+    
+    @Column(nullable = false, length = 100)
     private String duration;  
+    
+    @Column(nullable = false)
     private int item;
+    
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
     private User doctor;
+    
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date date;
+    
+    @Column(nullable = false)
     private double cost;
-
-    public OrderMedication() {
-    }
 
     public int getIdMedication() {
         return idMedication;
@@ -81,4 +111,6 @@ public class OrderMedication{
     public void setCost(double cost) {
         this.cost = cost;
     }
+    
+    
 }

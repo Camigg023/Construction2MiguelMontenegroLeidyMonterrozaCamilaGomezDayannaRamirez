@@ -1,21 +1,52 @@
-package app.domain.model;
 
+package app.infrastructure.persistence.entity;
+
+import app.domain.model.Patient;
+import app.domain.model.User;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.sql.Date;
 
-public class OrderDiagnosticTest{
+@Entity
+@Table(name = "order_diagnostics")
+public class OrderDiagnostic {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int diagnosticId;
+    
+    @Column(nullable = false)
     private int quantity;
+    
+    @Column(name = "requires_specialist", nullable = false)
     private Boolean requiresSpecialist; 
+    
+    @Column(name = "specialist_code", nullable = false)
     private int specialistcode;
+    
+    @Column(nullable = false)
     private int item;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "doctor_id")
     private User doctor;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id")
     private Patient patient;
+    
+    @Column(nullable = false)
     private Date date;
-    private double cost;
-
-    public OrderDiagnosticTest() {
-    }
+    
+    @Column(nullable = false)
+    private double cost;   
 
     public int getDiagnosticId() {
         return diagnosticId;
@@ -88,6 +119,6 @@ public class OrderDiagnosticTest{
     public void setCost(double cost) {
         this.cost = cost;
     }
-
+    
     
 }
