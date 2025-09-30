@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package app.adapter.in.validators;
+package app.adapter.in.rest.controllers;
 
 /**
  *
- * @author ALEJANDRA
+ * @author Camila
  */
-public class NewClass {
+public class AdminController {
     
 }

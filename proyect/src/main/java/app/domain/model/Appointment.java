@@ -16,6 +16,9 @@ public class Appointment {
     private String status;
     private Patient patient;
     private User doctor;
+    
+    public Appointment() {
+    }
 
     public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;

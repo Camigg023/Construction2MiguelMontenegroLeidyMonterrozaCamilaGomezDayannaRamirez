@@ -1,61 +1,29 @@
 package app.domain.model;
 
-import java.util.Date;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import java.sql.Date;
 
 
-@MappedSuperclass
-public abstract class Order {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long orderNumber;
-    
+public class Order {
     private User doctor;
     private Patient patient;
     private Date date;
     private double cost;
 
-    public Order(long orderNumber, User doctor, Patient patient, Date date, double cost ) {
-        this.orderNumber = orderNumber;
-        this.doctor = doctor;
-        this.patient = patient;
-        this.date = date;
-        this.cost = cost;
-        
+    public Order() {
     }
 
-    
-    public long getOrderNumber() {
-        return orderNumber;
-    }
-
-    
-    public void setOrderNumber(long orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    
     public User getDoctor() {
         return doctor;
     }
 
-    
     public void setDoctor(User doctor) {
         this.doctor = doctor;
     }
 
-    
     public Patient getPatient() {
         return patient;
     }
 
-    
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
@@ -75,6 +43,6 @@ public abstract class Order {
     public void setCost(double cost) {
         this.cost = cost;
     }
+ 
     
-     
 }

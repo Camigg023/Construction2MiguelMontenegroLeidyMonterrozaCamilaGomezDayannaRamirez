@@ -32,6 +32,9 @@ public class Patient {
         this.medicalInsurance = medicalInsurance;
         this.emergencyContact = emergencyContact;
     }
+    
+    public Patient() {
+}
 
     public long getId_patient() {
         return id_patient;

@@ -20,19 +20,17 @@ public class User {
     private Date birthDay;
     private Role role; 
 
-    public User(String name, String email, String address, String userName, String password, long identification, int phone, Date birthDay, Role role) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.userName = userName;
-        this.password = password;
-        this.identification = identification;
-        this.phone = phone;
-        this.birthDay = birthDay;
-        this.role = role;
+    public User() {
     }
-    
-    
+
+    public long getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(long identification) {
+        this.identification = identification;
+    }
+
     public String getName() {
         return name;
     }
@@ -73,14 +71,6 @@ public class User {
         this.password = password;
     }
 
-    public long getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(int identification) {
-        this.identification = identification;
-    }
-
     public int getPhone() {
         return phone;
     }
@@ -93,8 +83,8 @@ public class User {
         return birthDay;
     }
 
-    public void setBirthDay(Date BirthDay) {
-        this.birthDay = BirthDay;
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     public Role getRole() {
@@ -104,4 +94,6 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+    
+    
 }

@@ -18,6 +18,9 @@ public class Bill{
   private Double cost; 
   private Date date;
 
+    public Bill() {
+    }
+
     public Bill( Patient patient, User doctor, MedicalInsurance medicalInsurance, long InvoiceId, Double cost, boolean medication, Date date) {
         this.patient = patient;
         this.doctor = doctor;

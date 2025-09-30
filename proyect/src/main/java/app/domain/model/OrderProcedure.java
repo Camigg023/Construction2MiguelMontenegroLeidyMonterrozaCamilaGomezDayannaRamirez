@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class OrderProcedure extends Order{
+public class OrderProcedure{
     
     @Id
     private long ProcedureId;
@@ -15,15 +15,12 @@ public class OrderProcedure extends Order{
     private Boolean requiresSpecialist; 
     private int specialistcode; 
     private int item; 
+    private User doctor;
+    private Patient patient;
+    private Date date;
+    private double cost;
 
-    public OrderProcedure(long ProcedureId, int quantity, String frequency, Boolean requiresSpecialist, int specialistcode, int item, long orderNumber, User doctor, Patient patient, Date date, double cost) {
-        super(orderNumber, doctor, patient, date, cost);
-        this.ProcedureId = ProcedureId;
-        this.quantity = quantity;
-        this.frequency = frequency;
-        this.requiresSpecialist = requiresSpecialist;
-        this.specialistcode = specialistcode;
-        this.item = item;
+    public OrderProcedure() {
     }
 
     public long getProcedureId() {
@@ -73,10 +70,36 @@ public class OrderProcedure extends Order{
     public void setItem(int item) {
         this.item = item;
     }
-    
-    
-    
-    
 
-    
+    public User getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(User doctor) {
+        this.doctor = doctor;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 }
