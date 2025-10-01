@@ -22,7 +22,7 @@ public class UserBuilder {
             String userName,
             String password,
             long phone,
-            String birthDayStr
+            String birthday
     ) throws Exception {
         
     
@@ -36,7 +36,7 @@ public class UserBuilder {
         String validatedUserName = validator.userNameValidator(userName);
         String validatedPassword = validator.passwordValidator(password);
         long validatedPhone = validator.phoneValidator(phone);
-        Date validatedBirthDay = validator.birthDayValidator(birthDayStr);
+        Date validatedBirthDay = validator.birthDayValidator(birthday);
 
         // Construcción del objeto User
         User doctor = new User();

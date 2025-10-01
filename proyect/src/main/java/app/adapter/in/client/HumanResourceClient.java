@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import app.adapter.in.builder.UserBuilder;
 import app.application.usecases.HumanResource;
 import app.domain.model.User;
+import java.sql.Date;
 
 @Controller
 public class HumanResourceClient {

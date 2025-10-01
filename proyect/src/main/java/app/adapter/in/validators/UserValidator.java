@@ -38,15 +38,17 @@ public class UserValidator extends SimpleValidator {
     }
 
     public Date birthDayValidator(String value) throws Exception {
-        stringValidator("fecha de nacimiento del doctor", value);
+        stringValidator("Fecha de nacimiento del doctor", value);
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            formatter.setLenient(false); // no acepta fechas inválidas como 2025-02-30
             java.util.Date parsedDate = formatter.parse(value);
             return new Date(parsedDate.getTime());
         } catch (Exception e) {
             throw new InputsException("La fecha de nacimiento debe tener formato yyyy-MM-dd");
         }
     }
+
 
     
 }
