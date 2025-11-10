@@ -1,84 +1,83 @@
-package app.domain.model;
+package src.main.java.app.domain.model;
 
-import java.util.Date;
+import java.sql.Date;
 
+public class OrderMedication {
 
-public class OrderMedication{
-    
-    private int idMedication;
-    
-    private String dosage;
-    private String duration;  
+    private int orderId;
     private int item;
+    private Medication medication;
+    private String dose;
+    private String duration;
+    private int quantity;
+    private double unitCost;
+    private double totalCost;
     private User doctor;
     private Patient patient;
     private Date date;
-    private double cost;
+    private Double Cost;
 
-    public OrderMedication() {
-    }
-
-    public int getIdMedication() {
-        return idMedication;
-    }
-
-    public void setIdMedication(int idMedication) {
-        this.idMedication = idMedication;
-    }
-
-    public String getDosage() {
-        return dosage;
-    }
-
-    public void setDosage(String dosage) {
-        this.dosage = dosage;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
+    // 🔹 Constructor
+    public OrderMedication(int orderId, int item, Medication medication, String dose, String duration,
+                           int quantity, double unitCost, User doctor, Patient patient, Date date, Double Cost) {
+        this.orderId = orderId;
+        this.item = item;
+        this.medication = medication;
+        this.dose = dose;
         this.duration = duration;
+        this.quantity = quantity > 0 ? quantity : 1;
+        this.unitCost = unitCost > 0 ? unitCost : medication.getUnitCost();
+        this.totalCost = this.quantity * this.unitCost;
+        this.doctor = doctor;
+        this.patient = patient;
+        this.date = (date != null) ? date : new Date(System.currentTimeMillis());
+        this.Cost = Cost;
+
     }
 
+    public OrderMedication(int orderId, int item, Medication medication, String doseV, String durationV, int quantity, User doctor, Patient patient, Date sqlDate) {
+    }
+
+    // 🔹 Getters y Setters
+    public int getOrderId() {
+        return orderId;
+    }
     public int getItem() {
         return item;
     }
-
-    public void setItem(int item) {
-        this.item = item;
+    public Medication getMedication() {
+        return medication;
     }
-
+    public String getDose() {
+        return dose;
+    }
+    public String getDuration() {
+        return duration;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public double getUnitCost() {
+        return unitCost;
+    }
+    public double getTotalCost() {
+        return totalCost;
+    }
     public User getDoctor() {
         return doctor;
     }
-
-    public void setDoctor(User doctor) {
-        this.doctor = doctor;
-    }
-
     public Patient getPatient() {
         return patient;
     }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
     public Date getDate() {
         return date;
     }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public Double getCost() {
+        return Cost;
     }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }
+
+

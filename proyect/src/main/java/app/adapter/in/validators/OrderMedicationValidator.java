@@ -1,57 +1,90 @@
-package app.adapter.in.validators;
+package src.main.java.app.adapter.in.validators;
 
 import org.springframework.stereotype.Component;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
-import app.domain.model.User;
-import app.domain.model.Patient;
+import java.util.Date;
 import app.application.exceptions.InputsException;
+import src.main.java.app.domain.model.User;
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.domain.model.Medication;
+
 
 @Component
 public class OrderMedicationValidator extends SimpleValidator {
 
-    public int idMedicationValidator(String value) throws Exception {
-        return integerValidator("ID de la medicación", value);
-    }
-
-    public String dosageValidator(String value) throws Exception {
-        return stringValidator("dosis de la medicación", value);
-    }
-
-    public String durationValidator(String value) throws Exception {
-        return stringValidator("duración de la medicación", value);
+    public int orderIdValidator(String value) throws Exception {
+        int v = integerValidator("número de orden", value);
+        if (v <= 0 || v > 999999) {
+            throw new InputsException("El número de orden debe ser mayor que 0 y máximo 6 dígitos.");
+        }
+        return v;
     }
 
     public int itemValidator(String value) throws Exception {
-        return integerValidator("ítem de la medicación", value);
+        int v = integerValidator("ítem de la orden", value);
+        if (v <= 0) {
+            throw new InputsException("El ítem debe ser mayor que 0.");
+        }
+        return v;
+    }
+
+    public int quantityValidator(String value) throws Exception {
+        int v = integerValidator("cantidad", value);
+        if (v <= 0) {
+            throw new InputsException("La cantidad debe ser mayor que 0.");
+        }
+        return v;
+    }
+
+    public String doseValidator(String value) throws Exception {
+        return stringValidator("dosis", value);
+    }
+
+    public String durationValidator(String value) throws Exception {
+        return stringValidator("duración", value);
+    }
+
+    public Date dateValidator(String value) throws Exception {
+        stringValidator("fecha", value);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        formatter.setLenient(false);
+        java.util.Date parsed = formatter.parse(value);
+        return parsed;
+    }
+
+    public Medication medicationValidator(Medication medication) throws Exception {
+        if (medication == null) {
+            throw new InputsException("El medicamento no puede ser nulo.");
+        }
+        if (medication.getUnitCost() < 0) {
+            throw new InputsException("El costo unitario del medicamento no puede ser negativo.");
+        }
+        return medication;
     }
 
     public User doctorValidator(User doctor) throws Exception {
         if (doctor == null) {
-            throw new InputsException("El doctor no puede ser nulo");
+            throw new InputsException("El médico no puede ser nulo.");
         }
         return doctor;
     }
 
     public Patient patientValidator(Patient patient) throws Exception {
         if (patient == null) {
-            throw new InputsException("El paciente no puede ser nulo");
+            throw new InputsException("El paciente no puede ser nulo.");
         }
         return patient;
     }
 
-    public Date dateValidator(String value) throws Exception {
-        stringValidator("fecha de la medicación", value);
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date parsedDate = formatter.parse(value);
-            return new Date(parsedDate.getTime());
-        } catch (Exception e) {
-            throw new InputsException("La fecha de la medicación debe tener formato yyyy-MM-dd");
+    public void validateCopayInsuranceConsistency(double cost, double copay, double insuranceCovered) throws Exception {
+        if (cost < 0) {
+            throw new InputsException("El costo no puede ser negativo.");
         }
-    }
-
-    public double costValidator(String value) throws Exception {
-        return doubleValidator("costo de la medicación", value);
+        if (copay < 0 || insuranceCovered < 0) {
+            throw new InputsException("Copago y cobertura no pueden ser negativos.");
+        }
+        if ((copay + insuranceCovered) > cost) {
+            throw new InputsException("El copago y la cobertura no pueden superar el costo total.");
+        }
     }
 }

@@ -1,9 +1,11 @@
-package app.adapter.in.validators;
+package src.main.java.app.adapter.in.validators;
 
 import org.springframework.stereotype.Component;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
-import app.domain.model.Patient;
+
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.domain.model.User;
 import app.application.exceptions.InputsException;
 
 @Component
@@ -33,14 +35,29 @@ public class VisitValidator extends SimpleValidator {
     }
 
     public Patient patientValidator(Patient patient) throws Exception {
-        if (patient == null) {
-            throw new InputsException("El paciente no puede ser nulo");
-        }
+        if (patient == null) throw new InputsException("El paciente no puede ser nulo");
         return patient;
+    }
+
+    public User doctorValidator(User doctor) throws Exception {
+        if (doctor == null) throw new InputsException("El doctor no puede ser nulo");
+        return doctor;
     }
 
     public String notesValidator(String value) throws Exception {
         return stringValidator("notas de la visita", value);
     }
+
+    public String statusValidator(String value) throws Exception {
+        if (value == null || value.isEmpty()) throw new InputsException("El estado de la visita no puede ser vacío");
+        if (!value.equalsIgnoreCase("Scheduled") &&
+                !value.equalsIgnoreCase("In Progress") &&
+                !value.equalsIgnoreCase("Completed") &&
+                !value.equalsIgnoreCase("Cancelled")) {
+            throw new InputsException("El estado de la visita debe ser: Scheduled, In Progress, Completed o Cancelled");
+        }
+        return value;
+    }
 }
+
 

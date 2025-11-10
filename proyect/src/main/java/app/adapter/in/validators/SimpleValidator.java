@@ -1,4 +1,4 @@
-package app.adapter.in.validators;
+package src.main.java.app.adapter.in.validators;
 
 import app.application.exceptions.InputsException;
 
@@ -40,4 +40,5 @@ public abstract class SimpleValidator {
             throw new InputsException(element + " debe ser un valor numerico");
         }
     }
+
 }

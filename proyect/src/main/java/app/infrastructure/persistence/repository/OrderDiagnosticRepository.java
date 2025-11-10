@@ -1,9 +1,9 @@
-package app.infrastructure.persistence.repository;
+package src.main.java.app.infrastructure.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import app.infrastructure.persistence.entities.OrderDiagnosticEntity;
+import src.main.java.app.infrastructure.persistence.entities.OrderDiagnosticEntity;
 
 import java.sql.Date;
 import java.util.List;

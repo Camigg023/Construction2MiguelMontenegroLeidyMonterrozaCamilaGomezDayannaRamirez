@@ -1,9 +1,9 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.Appointment;
-import app.domain.model.Patient;
-import app.domain.model.User;
-import app.infrastructure.persistence.entities.AppointmentEntity;
+import src.main.java.app.domain.model.Appointment;
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.domain.model.User;
+import src.main.java.app.infrastructure.persistence.entities.AppointmentEntity;
 
 public class AppointmentMapper {
 

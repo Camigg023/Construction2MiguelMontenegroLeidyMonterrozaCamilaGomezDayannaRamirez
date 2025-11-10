@@ -1,8 +1,8 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.MedicalHistory;
-import app.domain.model.User;
-import app.infrastructure.persistence.entities.MedicalHistoryEntity;
+import src.main.java.app.domain.model.MedicalHistory;
+import src.main.java.app.domain.model.User;
+import src.main.java.app.infrastructure.persistence.entities.MedicalHistoryEntity;
 
 public class MedicalHistoryMapper {
 

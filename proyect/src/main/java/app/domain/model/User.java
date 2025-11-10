@@ -1,24 +1,32 @@
-package app.domain.model;
+package src.main.java.app.domain.model;
 
-import app.domain.model.emuns.Role;
-import java.sql.Date; 
+import src.main.java.app.domain.model.emuns.Role;
+import java.sql.Date;
 
 public class User {
-    
+
     private long identification;
     private String name;
     private String email;
-    private String address; 
+    private String address;
     private String userName;
-    private String password; 
-    private long phone;
+    private String password;
+    private Long phone;
     private Date birthDay;
-    private Role role; 
+    private Role role;
 
-    public User () {
+    public User() {
     }
-    
-    
+
+    // Getters y Setters
+    public long getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(long identification) {
+        this.identification = identification;
+    }
+
     public String getName() {
         return name;
     }
@@ -59,14 +67,6 @@ public class User {
         this.password = password;
     }
 
-    public long getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(Long identification) {
-        this.identification = identification;
-    }
-
     public Long getPhone() {
         return phone;
     }
@@ -79,8 +79,8 @@ public class User {
         return birthDay;
     }
 
-    public void setBirthDay(Date BirthDay) {
-        this.birthDay = BirthDay;
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     public Role getRole() {

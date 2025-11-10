@@ -1,9 +1,9 @@
 
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.User;
-import app.domain.model.emuns.Role;
-import app.infrastructure.persistence.entities.UserEntity;
+import src.main.java.app.domain.model.User;
+import src.main.java.app.domain.model.emuns.Role;
+import src.main.java.app.infrastructure.persistence.entities.UserEntity;
 
 public class UserMapper {
 

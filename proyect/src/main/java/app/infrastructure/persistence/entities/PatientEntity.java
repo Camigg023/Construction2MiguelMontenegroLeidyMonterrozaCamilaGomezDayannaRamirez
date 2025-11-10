@@ -1,8 +1,8 @@
 
-package app.infrastructure.persistence.entities;
+package src.main.java.app.infrastructure.persistence.entities;
 
-import app.domain.model.EmergencyContact;
-import app.domain.model.MedicalInsurance;
+import src.main.java.app.domain.model.EmergencyContact;
+import src.main.java.app.domain.model.MedicalInsurance;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

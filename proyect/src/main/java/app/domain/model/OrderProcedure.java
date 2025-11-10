@@ -1,100 +1,82 @@
-package app.domain.model;
+package src.main.java.app.domain.model;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class OrderProcedure{
-    
-    private long ProcedureId;
-    private int quantity; 
+public class OrderProcedure {
+
+    private int orderId;
+    private int item;
+    private Procedure procedure;
+    private int quantity;
     private String frequency;
-    private Boolean requiresSpecialist; 
-    private int specialistcode; 
-    private int item; 
+    private double unitCost;
+    private double totalCost;
+    private int specialistCode;
     private User doctor;
     private Patient patient;
     private Date date;
-    private double cost;
+    private Double Cost;
 
-    public OrderProcedure() {
-    }
-
-    public long getProcedureId() {
-        return ProcedureId;
-    }
-
-    public void setProcedureId(long ProcedureId) {
-        this.ProcedureId = ProcedureId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getFrequency() {
-        return frequency;
-    }
-
-    public void setFrequency(String frequency) {
+    public OrderProcedure(int orderId, int item, Procedure procedure, int quantity,
+                          String frequency, double unitCost, int specialistCode,
+                          User doctor, Patient patient, Date date, Double Cost) {
+        this.orderId = orderId;
+        this.item = item;
+        this.procedure = procedure;
+        this.quantity = quantity > 0 ? quantity : 1;
         this.frequency = frequency;
+        this.unitCost = (unitCost > 0) ? unitCost : procedure.getBaseCost();
+        this.totalCost = this.quantity * this.unitCost;
+        this.specialistCode = specialistCode;
+        this.doctor = doctor;
+        this.patient = patient;
+        this.date = (date != null) ? date : new Date(System.currentTimeMillis());
+        this.Cost = Cost;
     }
 
-    public Boolean getRequiresSpecialist() {
-        return requiresSpecialist;
+    public OrderProcedure(long orderId, Procedure validatedProcedure, int quantity, String validatedFrequency, User validatedDoctor, Patient validatedPatient, Date validatedDate, double validatedUnitCost, int validatedSpecialistCode) {
     }
 
-    public void setRequiresSpecialist(Boolean requiresSpecialist) {
-        this.requiresSpecialist = requiresSpecialist;
+    // 🔹 Getters y Setters
+    public int getOrderId() {
+        return orderId;
     }
-
-    public int getSpecialistcode() {
-        return specialistcode;
-    }
-
-    public void setSpecialistcode(int specialistcode) {
-        this.specialistcode = specialistcode;
-    }
-
     public int getItem() {
         return item;
     }
-
-    public void setItem(int item) {
-        this.item = item;
+    public Procedure getProcedure() {
+        return procedure;
     }
-
+    public int getQuantity() {
+        return quantity;
+    }
+    public String getFrequency() {
+        return frequency;
+    }
+    public double getUnitCost() {
+        return unitCost;
+    }
+    public double getTotalCost() {
+        return totalCost;
+    }
+    public int getSpecialistCode() {
+        return specialistCode;
+    }
     public User getDoctor() {
         return doctor;
     }
-
-    public void setDoctor(User doctor) {
-        this.doctor = doctor;
-    }
-
     public Patient getPatient() {
         return patient;
     }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
     public Date getDate() {
         return date;
     }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public Double getCost() {
+        return Cost;
+    }
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public double getCost() {
-        return cost;
-    }
 
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
 }

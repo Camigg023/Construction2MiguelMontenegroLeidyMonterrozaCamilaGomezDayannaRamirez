@@ -1,6 +1,6 @@
-package app.domain.ports;
+package src.main.java.app.domain.ports;
 
-import app.domain.model.Visit;
+import src.main.java.app.domain.model.Visit;
 import java.util.List;
 
 public interface VisitPort {

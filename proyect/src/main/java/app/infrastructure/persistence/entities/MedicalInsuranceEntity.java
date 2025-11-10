@@ -1,5 +1,5 @@
 
-package app.infrastructure.persistence.entities;
+package src.main.java.app.infrastructure.persistence.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

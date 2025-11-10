@@ -1,7 +1,7 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.OrderDiagnosticTest;
-import app.infrastructure.persistence.entities.OrderDiagnosticEntity;
+import src.main.java.app.domain.model.OrderDiagnosticTest;
+import src.main.java.app.infrastructure.persistence.entities.OrderDiagnosticEntity;
 
 public class OrderDiagnosticMapper {
 

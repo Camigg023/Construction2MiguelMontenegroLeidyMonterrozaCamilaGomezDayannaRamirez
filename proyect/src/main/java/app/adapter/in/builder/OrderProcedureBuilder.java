@@ -1,13 +1,11 @@
-package app.adapter.in.builder;
+package src.main.java.app.adapter.in.builder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import app.domain.model.OrderProcedure;
-import app.domain.model.User;
-import app.domain.model.Patient;
-import app.adapter.in.validators.OrderProcedureValidator;
 import java.sql.Date;
+
+import src.main.java.app.domain.model.*;
+import src.main.java.app.adapter.in.validators.OrderProcedureValidator;
 
 @Component
 public class OrderProcedureBuilder {
@@ -15,46 +13,37 @@ public class OrderProcedureBuilder {
     @Autowired
     private OrderProcedureValidator validator;
 
-    public OrderProcedure build(
-            User doctor,
-            Patient patient,
-            String procedureIdStr,
-            String quantityStr,
-            String frequency,
-            String requiresSpecialistStr,
-            String specialistCodeStr,
-            String itemStr,
-            String dateStr,
-            String costStr
-    ) throws Exception {
+    public OrderProcedure build(String orderIdStr, Procedure procedure, String quantityStr, String frequency, User doctor, Patient patient, String dateStr, String unitCostStr, String specialistCodeStr)
 
-        // Validaciones
-        doctor = validator.doctorValidator(doctor);
-        patient = validator.patientValidator(patient);
+     throws Exception {
 
-        long procedureId = validator.procedureIdValidator(procedureIdStr);
+        long orderId = validator.orderIdValidator(orderIdStr);
+        Procedure validatedProcedure = validator.procedureValidator(procedure);
         int quantity = validator.quantityValidator(quantityStr);
         String validatedFrequency = validator.frequencyValidator(frequency);
-        Boolean requiresSpecialist = validator.requiresSpecialistValidator(requiresSpecialistStr);
-        int specialistCode = validator.specialistCodeValidator(specialistCodeStr);
-        int item = validator.itemValidator(itemStr);
-        Date date = validator.dateValidator(dateStr);
-        double cost = validator.costValidator(costStr);
+        User validatedDoctor = validator.doctorValidator(doctor);
+        Patient validatedPatient = validator.patientValidator(patient);
+        Date validatedDate = validator.dateValidator(dateStr);
+        double validatedUnitCost = validator.unitCostValidator(unitCostStr);
+        int validatedSpecialistCode = validator.specialistCodeValidator(specialistCodeStr);
 
-        // Construcción de la orden
-        OrderProcedure order = new OrderProcedure();
-        order.setProcedureId(procedureId);
-        order.setDoctor(doctor);
-        order.setPatient(patient);
-        order.setQuantity(quantity);
-        order.setFrequency(validatedFrequency);
-        order.setRequiresSpecialist(requiresSpecialist);
-        order.setSpecialistcode(specialistCode);
-        order.setItem(item);
-        order.setDate(date);
-        order.setCost(cost);
 
-        return order;
+        OrderProcedure orderProcedure = new OrderProcedure(
+                orderId,
+                validatedProcedure,
+                quantity,
+                validatedFrequency,
+                validatedDoctor,
+                validatedPatient,
+                validatedDate,
+                validatedUnitCost,
+                validatedSpecialistCode
+        );
+
+        return orderProcedure;
     }
 }
+
+
+
 

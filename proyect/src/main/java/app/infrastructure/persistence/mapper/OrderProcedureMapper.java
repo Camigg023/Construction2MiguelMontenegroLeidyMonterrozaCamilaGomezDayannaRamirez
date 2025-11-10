@@ -1,7 +1,7 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.OrderProcedure;
-import app.infrastructure.persistence.entities.OrderProcedureEntity;
+import src.main.java.app.domain.model.OrderProcedure;
+import src.main.java.app.infrastructure.persistence.entities.OrderProcedureEntity;
 
 public class OrderProcedureMapper{
     

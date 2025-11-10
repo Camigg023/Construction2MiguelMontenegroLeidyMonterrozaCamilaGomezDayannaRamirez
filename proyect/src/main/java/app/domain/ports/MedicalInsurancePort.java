@@ -1,8 +1,8 @@
 
-package app.domain.ports;
+package src.main.java.app.domain.ports;
 
-import app.domain.model.MedicalInsurance;
-import app.domain.model.Patient;
+import src.main.java.app.domain.model.MedicalInsurance;
+import src.main.java.app.domain.model.Patient;
 
 public interface MedicalInsurancePort {
     public Patient findByIdentification (Patient patient) throws Exception;

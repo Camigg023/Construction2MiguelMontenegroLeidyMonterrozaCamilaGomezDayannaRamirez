@@ -1,18 +1,22 @@
-package app.domain.model;
+package src.main.java.app.domain.model;
 
-import java.sql.Date; 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
+import java.sql.Date;
 
 public class MedicalInsurance {
-    
-    private String policyNumber;    
+
+    private String policyNumber;
     private String company;
     private Date validity;
     private Boolean status;
-    
-     public MedicalInsurance () {
+    private Patient patient;
+
+
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
+
+    public void setPolicyNumber(String policyNumber) {
+        this.policyNumber = policyNumber;
     }
 
     public String getCompany() {
@@ -21,14 +25,6 @@ public class MedicalInsurance {
 
     public void setCompany(String company) {
         this.company = company;
-    }
-
-    public String getPolicyNumber() {
-        return policyNumber;
-    }
-
-    public void setPolicyNumber(String policyNumber) {
-        this.policyNumber = policyNumber;
     }
 
     public Date getValidity() {
@@ -44,7 +40,15 @@ public class MedicalInsurance {
     }
 
     public void setStatus(Boolean status) {
-        
         this.status = status;
     }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }
+

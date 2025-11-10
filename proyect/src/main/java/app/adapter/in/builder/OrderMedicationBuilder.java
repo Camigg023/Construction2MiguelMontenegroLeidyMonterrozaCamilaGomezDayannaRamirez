@@ -1,14 +1,15 @@
-package app.adapter.in.builder;
+package src.main.java.app.adapter.in.builder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import app.domain.model.OrderMedication;
-import app.domain.model.Patient;
-import app.domain.model.User;
-import app.adapter.in.validators.OrderMedicationValidator;
+import src.main.java.app.adapter.in.validators.OrderMedicationValidator;
+import src.main.java.app.domain.model.OrderMedication;
+import src.main.java.app.domain.model.Medication;
+import src.main.java.app.domain.model.User;
+import src.main.java.app.domain.model.Patient;
 
-import java.sql.Date; 
+import java.util.Date;
 
 @Component
 public class OrderMedicationBuilder {
@@ -16,39 +17,37 @@ public class OrderMedicationBuilder {
     @Autowired
     private OrderMedicationValidator validator;
 
-    public OrderMedication build(
-            User doctor,
-            Patient patient,
-            String dateStr,
-            String costStr,
-            String dosage,
-            String duration,
-            String itemStr
-    ) throws Exception {
+    public OrderMedication build(String orderIdStr, String itemStr, String quantityStr, String dose, String duration, String dateStr, Medication medicationEntity, User doctorEntity, Patient patientEntity)
 
-        
-        doctor = validator.doctorValidator(doctor);
-        patient = validator.patientValidator(patient);
+     throws Exception {
 
-        
-        Date date = validator.dateValidator(dateStr); 
-        double cost = validator.costValidator(costStr);
-
-        
-        String validatedDosage = validator.dosageValidator(dosage);
-        String validatedDuration = validator.durationValidator(duration);
+        int orderId = validator.orderIdValidator(orderIdStr);
         int item = validator.itemValidator(itemStr);
+        int quantity = validator.quantityValidator(quantityStr);
+        String doseV = validator.doseValidator(dose);
+        String durationV = validator.durationValidator(duration);
+        java.util.Date utilDate = validator.dateValidator(dateStr);
 
-        
-        OrderMedication order = new OrderMedication();
-        order.setDoctor(doctor);       
-        order.setPatient(patient);
-        order.setDate(date);           
-        order.setCost(cost);
-        order.setDosage(validatedDosage);
-        order.setDuration(validatedDuration);
-        order.setItem(item);
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 
-        return order;
+        Medication medication = validator.medicationValidator(medicationEntity);
+        User doctor = validator.doctorValidator(doctorEntity);
+        Patient patient = validator.patientValidator(patientEntity);
+
+        OrderMedication orderMedication = new OrderMedication(
+                orderId,
+                item,
+                medication,
+                doseV,
+                durationV,
+                quantity,
+                doctor,
+                patient,
+                sqlDate
+        );
+
+        // NOTA: la entidad calcula su cost internamente en el constructor/settters .
+
+        return orderMedication;
     }
 }

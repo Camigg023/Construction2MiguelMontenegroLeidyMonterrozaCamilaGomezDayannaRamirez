@@ -1,8 +1,9 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.Visit;
-import app.domain.model.Patient;
-import app.infrastructure.persistence.entities.VisitEntity;
+import src.main.java.app.domain.model.Visit;
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.infrastructure.persistence.entities.VisitEntity;
+import src.main.java.app.infrastructure.persistence.entities.VisitEntity;
 
 public class VisitMapper {
 

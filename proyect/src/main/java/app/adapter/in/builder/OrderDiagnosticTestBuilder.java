@@ -1,13 +1,12 @@
-package app.adapter.in.builder;
+package src.main.java.app.adapter.in.builder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import java.sql.Date;
 
-import app.domain.model.OrderDiagnosticTest;
-import app.domain.model.Patient;
-import app.adapter.in.validators.OrderDiagnosticTestValidator;
-
-import java.util.Date;
+import src.main.java.app.adapter.in.validators.OrderDiagnosticTestValidator;
+import src.main.java.app.domain.model.*;
+import src.main.java.app.domain.model.emuns.StateOrder;
 
 @Component
 public class OrderDiagnosticTestBuilder {
@@ -15,41 +14,50 @@ public class OrderDiagnosticTestBuilder {
     @Autowired
     private OrderDiagnosticTestValidator validator;
 
-    public OrderDiagnosticTest build(
-            Patient patient,
-            String dateStr,
-            String costStr,
-            String quantityStr,
-            String requiresSpecialistStr,
-            String specialistCodeStr,
-            String itemStr
-    ) throws Exception {
+    public OrderDiagnosticTest build(String orderIdStr, String itemIdStr, DiagnosticTest diagnosticTest, String quantityStr, String requiresSpecialistStr, String specialistCodeStr, String costStr, String copayStr, String insuranceCoverageStr, String statusStr, String resultNotes, String creationDateStr, String resultDateStr, User doctor, Patient patient, Visit visit)
+     throws Exception {
 
-        
-        patient = validator.patientValidator(patient);
+            int orderId = validator.orderNumberValidator(orderIdStr);
+            int itemId = validator.itemValidator(itemIdStr);
+            DiagnosticTest validatedDiagnosticTest = validator.diagnosticTestValidator(diagnosticTest);
+            int quantity = validator.quantityValidator(quantityStr);
+            boolean requiresSpecialist = validator.requiresSpecialistValidator(requiresSpecialistStr);
+            Integer specialistCode = validator.specialistCodeValidator(specialistCodeStr, requiresSpecialist);
+            double cost = validator.costValidator(costStr);
+            double copay = validator.copayValidator(copayStr);
+            double insuranceCoverage = validator.insuranceCoveredValidator(insuranceCoverageStr);
+            String statusValue = validator.statusValidator(statusStr);
 
-        
-        Date utilDate = validator.dateValidator(dateStr);        
-        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); 
+            Date creationDate = new Date(validator.dateValidator(creationDateStr).getTime());
 
-        double cost = validator.costValidator(costStr);
+            Date resultDate = new Date(validator.dateValidator(resultDateStr).getTime());
+            User validatedDoctor = validator.doctorValidator(doctor);
+            Patient validatedPatient = validator.patientValidator(patient);
 
-        
-        int quantity = validator.quantityValidator(quantityStr);
-        Boolean requiresSpecialist = validator.requiresSpecialistValidator(requiresSpecialistStr);
-        int specialistCode = validator.specialistCodeValidator(specialistCodeStr);
-        int item = validator.itemValidator(itemStr);
 
-       
-        OrderDiagnosticTest order = new OrderDiagnosticTest();
-        order.setPatient(patient);
-        order.setDate(sqlDate);          
-        order.setCost(cost);
-        order.setQuantity(quantity);
-        order.setRequiresSpecialist(requiresSpecialist);
-        order.setSpecialistcode(specialistCode);
-        order.setItem(item);
+            OrderDiagnosticTest order = new OrderDiagnosticTest();
 
-        return order;
+            order.setOrderId((long) orderId);
+            order.setItemId((long) itemId);
+            order.setDiagnosticTest(validatedDiagnosticTest);
+            order.setQuantity(quantity);
+            order.setRequiresSpecialist(requiresSpecialist);
+            order.setSpecialistCode(specialistCode);
+            order.setCost(cost);
+            order.setCopay(copay);
+            order.setInsuranceCoverage(insuranceCoverage);
+            order.setStatus(StateOrder.valueOf(statusValue.toUpperCase()));
+            order.setResultNotes(resultNotes);
+            order.setCreationDate(creationDate);
+            order.setResultDate(resultDate);
+            order.setDoctor(validatedDoctor);
+            order.setPatient(validatedPatient);
+            order.setVisit(visit);
+
+            return order;
     }
 }
+
+
+
+

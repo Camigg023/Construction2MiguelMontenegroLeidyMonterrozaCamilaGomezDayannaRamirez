@@ -1,30 +1,31 @@
-package app.domain.model;
-
-
+package src.main.java.app.domain.model;
+import src.main.java.app.domain.model.EmergencyContact;
+import src.main.java.app.domain.model.MedicalInsurance;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Patient {
-    
-    private long idPatient;
-    
-    
+
+    private Long idPatient;
     private String fullName;
     private Date birthday;
     private String direction;
-    private long telephoneNumber;
+    private Long telephoneNumber;
     private String email;
-    private String gender; 
+    private String gender;
     private MedicalInsurance medicalInsurance;
     private EmergencyContact emergencyContact;
+    private List<Order> orders = new ArrayList<>();
 
-    public Patient () {
-    }
+    public Patient() {}
 
-    public long getIdPatient() {
+    // Getters y Setters
+    public Long getIdPatient() {
         return idPatient;
     }
 
-    public void setIdPatient(long idPatient) {
+    public void setIdPatient(Long idPatient) {
         this.idPatient = idPatient;
     }
 
@@ -40,8 +41,8 @@ public class Patient {
         return birthday;
     }
 
-    public void setBirthay(Date birthay) {
-        this.birthday = birthay;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getDirection() {
@@ -52,12 +53,12 @@ public class Patient {
         this.direction = direction;
     }
 
-    public long getTelephoneNumber() {
+    public Long getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(long telephone_number) {
-        this.telephoneNumber = telephone_number;
+    public void setTelephoneNumber(Long telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public String getEmail() {
@@ -92,11 +93,17 @@ public class Patient {
         this.emergencyContact = emergencyContact;
     }
 
-    
-    
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 }
-    
-    
+
+
+
     
     
     

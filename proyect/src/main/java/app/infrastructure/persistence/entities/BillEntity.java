@@ -1,10 +1,10 @@
 
-package app.infrastructure.persistence.entities;
+package src.main.java.app.infrastructure.persistence.entities;
 
-import app.domain.model.MedicalInsurance;
-import app.domain.model.OrderMedication;
-import app.domain.model.Patient;
-import app.domain.model.User;
+import src.main.java.app.domain.model.MedicalInsurance;
+import src.main.java.app.domain.model.OrderMedication;
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.domain.model.User;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

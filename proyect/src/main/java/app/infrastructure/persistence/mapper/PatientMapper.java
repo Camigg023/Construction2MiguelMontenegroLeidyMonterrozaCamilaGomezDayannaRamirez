@@ -1,9 +1,9 @@
-package app.infrastructure.persistence.mapper;
+package src.main.java.app.infrastructure.persistence.mapper;
 
-import app.domain.model.Patient;
-import app.domain.model.MedicalInsurance;
-import app.domain.model.EmergencyContact;
-import app.infrastructure.persistence.entities.PatientEntity;
+import src.main.java.app.domain.model.Patient;
+import src.main.java.app.domain.model.MedicalInsurance;
+import src.main.java.app.domain.model.EmergencyContact;
+import src.main.java.app.infrastructure.persistence.entities.PatientEntity;
 
 public class PatientMapper {
 
