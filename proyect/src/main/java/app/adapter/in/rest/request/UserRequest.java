@@ -1,136 +1,42 @@
 package app.adapter.in.rest.request;
- 
-import app.domain.model.emuns.Role;
 
+import lombok.Data;
+import src.main.java.app.domain.model.emuns.Role;
+import javax.validation.constraints.*;
 import java.sql.Date;
+
+@Data
  
 public class UserRequest {
- 
-    private long identification;
+    @NotNull(message = "La identificación es obligatoria")
+    private Long identification;
 
+    @NotBlank(message = "El nombre es obligatorio")
+    @Size(max = 150, message = "El nombre no puede superar 150 caracteres")
     private String name;
 
+    @Email(message = "Debe ser un correo válido")
+    @NotBlank(message = "El correo es obligatorio")
     private String email;
 
-    private String address; 
+    @Size(max = 150, message = "La dirección no puede superar 150 caracteres")
+    private String address;
 
+    @NotBlank(message = "El nombre de usuario es obligatorio")
+    @Size(max = 15, message = "El usuario no puede superar 15 caracteres")
     private String userName;
 
-    private String password; 
+    @NotBlank(message = "La contraseña es obligatoria")
+    @Size(min = 8, message = "La contraseña debe tener mínimo 8 caracteres")
+    private String password;
 
-    private long phone;
+    @NotNull(message = "El teléfono es obligatorio")
+    @Digits(integer = 10, fraction = 0, message = "El teléfono debe tener 10 dígitos")
+    private Long phone;
 
+    @NotNull(message = "La fecha de nacimiento es obligatoria")
     private Date birthDay;
 
+    @NotNull(message = "El rol es obligatorio")
     private Role role;
- 
-    public long getIdentification() {
-
-        return identification;
-
-    }
- 
-    public void setIdentification(long identification) {
-
-        this.identification = identification;
-
-    }
- 
-    public String getName() {
-
-        return name;
-
-    }
- 
-    public void setName(String name) {
-
-        this.name = name;
-
-    }
- 
-    public String getEmail() {
-
-        return email;
-
-    }
- 
-    public void setEmail(String email) {
-
-        this.email = email;
-
-    }
- 
-    public String getAddress() {
-
-        return address;
-
-    }
- 
-    public void setAddress(String address) {
-
-        this.address = address;
-
-    }
- 
-    public String getUserName() {
-
-        return userName;
-
-    }
- 
-    public void setUserName(String userName) {
-
-        this.userName = userName;
-
-    }
- 
-    public String getPassword() {
-
-        return password;
-
-    }
- 
-    public void setPassword(String password) {
-
-        this.password = password;
-
-    }
- 
-    public long getPhone() {
-
-        return phone;
-
-    }
- 
-    public void setPhone(long phone) {
-
-        this.phone = phone;
-
-    }
- 
-    public Date getBirthDay() {
-
-        return birthDay;
-
-    }
- 
-    public void setBirthDay(Date birthDay) {
-
-        this.birthDay = birthDay;
-
-    }
- 
-    public Role getRole() {
-
-        return role;
-
-    }
- 
-    public void setRole(Role role) {
-
-        this.role = role;
-
-    }
-
 }
- 
