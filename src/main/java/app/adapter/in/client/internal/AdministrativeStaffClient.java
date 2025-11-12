@@ -1,4 +1,4 @@
-package src.main.java.app.adapter.in.client.internal;
+package app.adapter.in.client.internal;
 
 import java.util.Scanner;
 

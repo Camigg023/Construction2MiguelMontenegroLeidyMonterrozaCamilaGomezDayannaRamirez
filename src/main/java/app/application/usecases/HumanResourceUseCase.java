@@ -1,7 +1,7 @@
 
 package src.main.java.app.application.usecases;
 
-import src.main.java.app.domain.model.User;
+import app.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package src.main.java.app.domain.model;
+package app.domain.model;
 
 import src.main.java.app.domain.model.emuns.AppointmentStatus;
 import src.main.java.app.domain.model.emuns.AppointmentType;
